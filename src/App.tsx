@@ -15,6 +15,7 @@ import { ServiceDetailPage } from "./pages/ServiceDetailPage";
 import { CustomersPage } from "./pages/CustomersPage";
 import { ExperiencePage } from "./pages/ExperiencePage";
 import { InsightsPage } from "./pages/InsightsPage";
+import { InsightDetailPage } from "./pages/InsightDetailPage";
 import { SpeakingPage } from "./pages/SpeakingPage";
 import { ContactPage } from "./pages/ContactPage";
 
@@ -71,6 +72,7 @@ function AppContent() {
             <Route path="/customers" element={<CustomersPage />} />
             <Route path="/experience" element={<ExperiencePage />} />
             <Route path="/insights" element={<InsightsPage />} />
+            <Route path="/insights/:id" element={<InsightDetailPage />} />
             <Route path="/speaking" element={<SpeakingPage />} />
             <Route path="/contact" element={<ContactPage />} />
 

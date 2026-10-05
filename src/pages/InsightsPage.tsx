@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, BookOpen, Clock, X } from "lucide-react";
-import { INSIGHTS_DATA, InsightArticle } from "../data/insights";
-import { MEDIA_ITEMS } from "../data/media";
+import { ArrowRight, ArrowUpRight, BookOpen, Clock } from "lucide-react";
+import { INSIGHTS_DATA } from "../data/insights";
 
 export function InsightsPage() {
-  const [selectedArticle, setSelectedArticle] = useState<InsightArticle | null>(null);
+  const featuredArticle = INSIGHTS_DATA.find((a) => a.id === "featured-sovereignty") || INSIGHTS_DATA[0];
+  const articlesList = INSIGHTS_DATA.filter((a) => a.id !== "featured-sovereignty");
 
   const upcomingPerspectives = [
     {
@@ -64,38 +63,24 @@ export function InsightsPage() {
                 <span className="px-3 py-1 rounded-full bg-[#111317] border border-[#C9A46C]/40 text-xs font-mono text-[#C9A46C]">
                   FEATURED STRATEGIC PERSPECTIVE
                 </span>
-                <span className="text-xs font-mono text-[#66717D]">8 MIN READ</span>
+                <span className="text-xs font-mono text-[#66717D]">{featuredArticle.readTime}</span>
               </div>
 
               <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#FAFAF8] mb-6 leading-tight">
-                FROM TECHNOLOGY LEADERSHIP TO MANUFACTURING IMPACT.
+                {featuredArticle.title}
               </h2>
 
               <p className="text-base sm:text-lg text-[#969BA3] leading-relaxed mb-8">
-                Exploring how technology leadership, manufacturing capability and ecosystem development can work together to create sustainable industry growth—connecting India’s 20% global design share to sovereign advanced packaging and OSAT capability.
+                {featuredArticle.summary}
               </p>
 
-              <button
-                onClick={() =>
-                  setSelectedArticle({
-                    id: "featured-sovereignty",
-                    title: "From Technology Leadership to Manufacturing Impact",
-                    category: "National Semiconductor Strategy",
-                    readTime: "8 min read",
-                    summary: "Why India's semiconductor sovereignty must start with advanced packaging, establishing domestic ATMP facilities to protect critical supply chains and capture value from design talent.",
-                    keyTheses: [
-                      "Connecting design leadership directly to domestic packaging creates immediate value capture without multi-billion dollar leading-edge fab gestation delays.",
-                      "OSAT cleanrooms require lower water and power infrastructure hurdles than sub-3nm wafer front-ends.",
-                      "Packaging sovereignty insulates domestic telecom, defense, and automotive supply chains against external geopolitical shocks."
-                    ],
-                    editorialNote: "Strategic position paper reflecting discourse presented at national industry forums."
-                  })
-                }
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#C9A46C] text-[#08090B] font-mono text-xs font-bold tracking-wider uppercase hover:bg-[#E1C58F] transition-all"
+              <Link
+                to={`/insights/${featuredArticle.id}`}
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#C9A46C] text-[#08090B] font-mono text-xs font-bold tracking-wider uppercase hover:bg-[#E1C58F] transition-all shadow-lg shadow-[#C9A46C]/10"
               >
                 <span>Read Full Brief</span>
                 <ArrowRight className="w-4 h-4 text-[#08090B]" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -114,14 +99,15 @@ export function InsightsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {INSIGHTS_DATA.map((article) => (
-              <div
+            {articlesList.map((article) => (
+              <Link
                 key={article.id}
-                className="p-8 rounded-2xl bg-[#08090B] border border-[#242933] hover:border-[#C9A46C]/60 transition-all flex flex-col justify-between group"
+                to={`/insights/${article.id}`}
+                className="p-8 rounded-2xl bg-[#08090B] border border-[#242933] hover:border-[#C9A46C]/60 hover:-translate-y-1 transition-all flex flex-col justify-between group shadow-lg shadow-black/20"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono text-[#C9A46C] uppercase">
+                    <span className="text-xs font-mono text-[#C9A46C] uppercase font-semibold">
                       {article.category}
                     </span>
                     <span className="text-xs font-mono text-[#66717D]">
@@ -141,29 +127,23 @@ export function InsightsPage() {
                     <div className="text-[10px] font-mono uppercase tracking-wider text-[#C9A46C] font-semibold">
                       Key Theses:
                     </div>
-                    {article.keyTheses.map((t, idx) => (
+                    {article.keyTheses.slice(0, 2).map((t, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-xs text-[#969BA3]">
                         <span className="text-[#C9A46C] mt-0.5">•</span>
-                        <span>{t}</span>
+                        <span className="line-clamp-2">{t}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 <div className="pt-4 border-t border-[#242933] flex items-center justify-between">
-                  <button
-                    onClick={() => setSelectedArticle(article)}
-                    className="inline-flex items-center gap-2 text-xs font-mono text-[#FAFAF8] hover:text-[#C9A46C] transition-colors"
-                  >
+                  <span className="inline-flex items-center gap-2 text-xs font-mono text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
                     <BookOpen className="w-3.5 h-3.5 text-[#C9A46C]" />
-                    <span>Inspect Full Brief</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#66717D]" />
-                  </button>
-                  <span className="text-[10px] font-mono text-[#66717D]">
-                    EDITORIAL BRIEF
+                    <span>Read Full Perspective</span>
                   </span>
+                  <ArrowRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] group-hover:translate-x-1 transition-all" />
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -217,55 +197,6 @@ export function InsightsPage() {
           </div>
         </div>
       </section>
-
-      {/* Article Detail Modal / Lightbox */}
-      {selectedArticle && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 bg-[#08090B]/90 backdrop-blur-md flex items-center justify-center p-6"
-        >
-          <div className="max-w-2xl w-full max-h-[85vh] overflow-y-auto bg-[#111317] border border-[#242933] rounded-2xl p-8 sm:p-10 relative shadow-2xl">
-            <button
-              onClick={() => setSelectedArticle(null)}
-              className="absolute top-6 right-6 p-2 rounded-lg text-[#969BA3] hover:text-white bg-[#1B1E24] border border-[#242933]"
-              aria-label="Close dialog"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-2 text-xs font-mono text-[#C9A46C] mb-3">
-              <span>{selectedArticle.category}</span>
-              <span>·</span>
-              <span>{selectedArticle.readTime}</span>
-            </div>
-
-            <h3 className="font-display text-3xl font-bold text-[#FAFAF8] mb-4">
-              {selectedArticle.title}
-            </h3>
-
-            <p className="text-base text-[#969BA3] leading-relaxed mb-6">
-              {selectedArticle.summary}
-            </p>
-
-            <div className="p-5 rounded-xl bg-[#1B1E24] border border-[#242933] mb-6 space-y-3">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-[#C9A46C] font-bold">
-                Detailed Thematic Tenets
-              </h4>
-              {selectedArticle.keyTheses.map((t, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-sm text-[#FAFAF8]">
-                  <span className="text-[#C9A46C] font-mono font-bold">{idx + 1}.</span>
-                  <span>{t}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-xs font-mono text-[#66717D] border-t border-[#242933] pt-4">
-              {selectedArticle.editorialNote}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

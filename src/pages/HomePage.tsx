@@ -214,11 +214,11 @@ export function HomePage() {
 
                 <div className="pt-4 border-t border-[#242933]">
                   <Link
-                    to="/insights"
+                    to={`/insights/${article.id}`}
                     className="inline-flex items-center gap-1.5 text-xs font-mono text-[#FAFAF8] hover:text-[#C9A46C] transition-colors"
                   >
                     <BookOpen className="w-3.5 h-3.5 text-[#C9A46C]" />
-                    <span>Read Brief in Insights</span>
+                    <span>Read Full Perspective</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
