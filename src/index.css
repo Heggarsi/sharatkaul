@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black-base: #07090D;
+  --color-graphite: #0D1117;
+  --color-graphite-2: #151A22;
+  --color-graphite-3: #1F2633;
+  --color-paper: #F3F2ED;
+  --color-white-pure: #FAFAF8;
+  --color-silicon: #A8B0BA;
+  --color-steel: #66717D;
+  --color-electric: #6FA8FF;
+  --color-electric-bright: #8DBBFF;
+  --color-copper: #D88A52;
+  --color-warm: #E8B878;
+  --color-green-accent: #69A88A;
+
+  --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: #07090D;
+    color: #FAFAF8;
+  }
+
+  /* Smooth scrolling baseline when Lenis isn't loaded */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Custom technical grid background */
+.technical-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(168, 176, 186, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 176, 186, 0.04) 1px, transparent 1px);
+}
+
+.technical-grid-dense {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(111, 168, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(111, 168, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Silicon wafer concentric lines */
+.wafer-pattern {
+  background-image: radial-gradient(circle at center, rgba(111, 168, 255, 0.08) 0%, rgba(7, 9, 13, 0) 70%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #07090D;
+}
+::-webkit-scrollbar-thumb {
+  background: #1F2633;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #66717D;
+}
+
+/* Subtle route change fade-in animation */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-fade-in {
+  animation: pageFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-fade-in {
+    animation: none !important;
+    transform: none !important;
+  }
+}
