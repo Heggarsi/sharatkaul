@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, ShieldCheck } from "lucide-react";
 import { PROFILE } from "../../data/profile";
+import { RKSLogo } from "../ui/RKSLogo";
 
 export function Footer() {
   const navLinks = [
@@ -21,13 +22,8 @@ export function Footer() {
         <div className="border-b border-[#242933] pb-14 mb-12">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
             <div>
-              <div className="text-xs font-mono text-[#C9A46C] tracking-widest uppercase mb-3">
-                TECHNOLOGY • STRATEGY • ECOSYSTEM • IMPACT
-              </div>
-              <Link to="/" className="inline-block group">
-                <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-[#FAFAF8] leading-none select-none group-hover:text-[#C9A46C] transition-colors">
-                  RKS CONSULTING
-                </h2>
+              <Link to="/" className="inline-block group mb-4" aria-label="RKS Consulting">
+                <RKSLogo variant="full" className="h-16 sm:h-20 w-auto group-hover:scale-[1.01] transition-transform" />
               </Link>
             </div>
           </div>

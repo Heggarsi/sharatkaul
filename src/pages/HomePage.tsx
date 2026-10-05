@@ -57,9 +57,10 @@ export function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {previewServices.map((service) => (
-              <div
+              <Link
                 key={service.id}
-                className="p-8 sm:p-10 rounded-2xl bg-[#111317] border border-[#242933] hover:border-[#C9A46C]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                to={service.path}
+                className="p-8 sm:p-10 rounded-2xl bg-[#111317] border border-[#242933] hover:border-[#C9A46C]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group shadow-lg shadow-black/20"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -81,16 +82,13 @@ export function HomePage() {
                 </div>
 
                 <div className="pt-6 border-t border-[#242933] flex items-center justify-between">
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors"
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
+                    <span>Explore Service Details</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#C9A46C] group-hover:translate-x-1 transition-transform" />
+                  </span>
                   <span className="text-[10px] font-mono text-[#66717D]">ADVISORY PRACTICE</span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

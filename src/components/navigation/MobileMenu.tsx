@@ -1,26 +1,20 @@
-import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { X, ArrowUpRight, Linkedin } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { X, ArrowUpRight, ChevronDown, Linkedin, ArrowRight } from "lucide-react";
 import { PROFILE } from "../../data/profile";
+import { SERVICES_DATA } from "../../data/services";
+import { RKSLogo } from "../ui/RKSLogo";
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const NAV_LINKS = [
-  { path: "/about", label: "About", num: "01" },
-  { path: "/services", label: "Services", num: "02" },
-  { path: "/customers", label: "Customers & Partners", num: "03" },
-  { path: "/experience", label: "Experience & Impact", num: "04" },
-  { path: "/insights", label: "Insights & Perspectives", num: "05" },
-  { path: "/speaking", label: "Speaking", num: "06" },
-  { path: "/contact", label: "Contact", num: "07" },
-];
-
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const firstFocusableRef = useRef<HTMLButtonElement>(null);
+  const [servicesAccordionOpen, setServicesAccordionOpen] = useState(false);
+  const location = useLocation();
 
   // Close on Escape & Lock body scroll
   useEffect(() => {
@@ -60,12 +54,13 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <Link
           to="/"
           onClick={onClose}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2.5"
+          aria-label="RKS Consulting Home"
         >
+          <RKSLogo variant="emblem" className="h-6 w-auto" />
           <span className="font-display font-bold text-lg tracking-tight text-[#FAFAF8]">
             RKS CONSULTING
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#C9A46C]" />
         </Link>
         <button
           ref={firstFocusableRef}
@@ -78,31 +73,177 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       </div>
 
       {/* Nav List */}
-      <nav className="my-auto py-6 overflow-y-auto max-h-[65vh]">
-        <ul className="flex flex-col gap-4">
-          {NAV_LINKS.map((link) => (
-            <li key={link.path}>
-              <Link
-                to={link.path}
-                onClick={onClose}
-                className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
-              >
-                <div className="flex items-baseline gap-4">
-                  <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
-                    {link.num}
-                  </span>
-                  <span className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
-                    {link.label}
-                  </span>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Link>
-            </li>
-          ))}
+      <nav className="my-auto py-6 overflow-y-auto max-h-[70vh]">
+        <ul className="flex flex-col gap-3">
+          {/* 01: About */}
+          <li>
+            <Link
+              to="/about"
+              onClick={onClose}
+              className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
+                  01
+                </span>
+                <span className="font-display text-2xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
+                  About
+                </span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] transition-transform" />
+            </Link>
+          </li>
+
+          {/* 02: Services Accordion */}
+          <li className="border-y border-[#242933]/60 py-2">
+            <button
+              type="button"
+              onClick={() => setServicesAccordionOpen(!servicesAccordionOpen)}
+              className="w-full text-left py-1 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
+                  02
+                </span>
+                <span className="font-display text-2xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
+                  Services
+                </span>
+              </div>
+              <ChevronDown
+                className={`w-5 h-5 text-[#C9A46C] transition-transform duration-200 ${
+                  servicesAccordionOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {/* Accordion Submenu */}
+            {servicesAccordionOpen && (
+              <div className="mt-3 pl-8 pr-2 py-2 space-y-2.5 border-l border-[#242933] ml-2 animate-page-fade-in">
+                <Link
+                  to="/services"
+                  onClick={onClose}
+                  className="flex items-center justify-between text-xs font-mono text-[#C9A46C] hover:text-[#E1C58F] pb-1 border-b border-[#242933]/40"
+                >
+                  <span>Services Overview</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+
+                {SERVICES_DATA.map((srv) => (
+                  <Link
+                    key={srv.id}
+                    to={srv.path}
+                    onClick={onClose}
+                    className={`block py-1 text-sm font-sans transition-colors ${
+                      location.pathname === srv.path
+                        ? "text-[#C9A46C] font-semibold"
+                        : "text-[#969BA3] hover:text-[#FAFAF8]"
+                    }`}
+                  >
+                    {srv.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </li>
+
+          {/* 03: Customers */}
+          <li>
+            <Link
+              to="/customers"
+              onClick={onClose}
+              className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
+                  03
+                </span>
+                <span className="font-display text-2xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
+                  Customers &amp; Partners
+                </span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] transition-transform" />
+            </Link>
+          </li>
+
+          {/* 04: Experience */}
+          <li>
+            <Link
+              to="/experience"
+              onClick={onClose}
+              className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
+                  04
+                </span>
+                <span className="font-display text-2xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
+                  Experience &amp; Impact
+                </span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] transition-transform" />
+            </Link>
+          </li>
+
+          {/* 05: Insights */}
+          <li>
+            <Link
+              to="/insights"
+              onClick={onClose}
+              className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
+                  05
+                </span>
+                <span className="font-display text-2xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
+                  Insights &amp; Perspectives
+                </span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] transition-transform" />
+            </Link>
+          </li>
+
+          {/* 06: Speaking */}
+          <li>
+            <Link
+              to="/speaking"
+              onClick={onClose}
+              className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
+                  06
+                </span>
+                <span className="font-display text-2xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
+                  Speaking
+                </span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] transition-transform" />
+            </Link>
+          </li>
+
+          {/* 07: Contact */}
+          <li>
+            <Link
+              to="/contact"
+              onClick={onClose}
+              className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
+                  07
+                </span>
+                <span className="font-display text-2xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
+                  Contact
+                </span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] transition-transform" />
+            </Link>
+          </li>
         </ul>
 
         {/* Mobile Action Button */}
-        <div className="mt-8 pt-6 border-t border-[#242933]">
+        <div className="mt-6 pt-4 border-t border-[#242933]">
           <Link
             to="/contact"
             onClick={onClose}
@@ -115,9 +256,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       </nav>
 
       {/* Bottom Footer */}
-      <div className="border-t border-[#242933] pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="border-t border-[#242933] pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div className="text-xs font-mono text-[#66717D]">
-          TECHNOLOGY · STRATEGY · ECOSYSTEMS
+          RKS CONSULTING · STRATEGY · ECOSYSTEMS
         </div>
         <div className="flex items-center gap-4">
           <a

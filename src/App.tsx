@@ -11,6 +11,7 @@ import { ScrollToTopOnRoute } from "./components/navigation/ScrollToTopOnRoute";
 import { HomePage } from "./pages/HomePage";
 import { AboutPage } from "./pages/AboutPage";
 import { ServicesPage } from "./pages/ServicesPage";
+import { ServiceDetailPage } from "./pages/ServiceDetailPage";
 import { CustomersPage } from "./pages/CustomersPage";
 import { ExperiencePage } from "./pages/ExperiencePage";
 import { InsightsPage } from "./pages/InsightsPage";
@@ -52,7 +53,21 @@ function AppContent() {
             {/* Primary Consulting Routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            
+            {/* Services Overview & Dedicated Detail Pages */}
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            
+            {/* Slugs redirects for backwards compatibility */}
+            <Route
+              path="/services/tech-business-dev"
+              element={<Navigate to="/services/technology-business-development" replace />}
+            />
+            <Route
+              path="/services/manufacturing-scaleup"
+              element={<Navigate to="/services/manufacturing-scale-up" replace />}
+            />
+
             <Route path="/customers" element={<CustomersPage />} />
             <Route path="/experience" element={<ExperiencePage />} />
             <Route path="/insights" element={<InsightsPage />} />
