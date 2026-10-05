@@ -45,7 +45,7 @@ export function WhySharatSection() {
             <span className="font-serif italic font-normal text-[#C9A46C]">CONNECTED THINKING.</span>
           </h2>
           <p className="text-base text-[#969BA3] mt-4">
-            Why enterprise CEOs, foundry consortiums, and technology investors engage Sharat Kaul to navigate high-stakes semiconductor inflections.
+            Why enterprise CEOs, foundry consortiums, and technology investors engage RKS Consulting to navigate high-stakes semiconductor inflections.
           </p>
         </div>
 

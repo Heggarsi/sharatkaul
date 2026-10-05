@@ -16,11 +16,11 @@ export function IntroductionSection() {
 
             <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#FAFAF8] leading-tight mb-6">
               WHO IS <br />
-              <span className="font-serif italic font-normal text-[#C9A46C]">SHARAT KAUL?</span>
+              <span className="font-serif italic font-normal text-[#C9A46C]">RKS CONSULTING?</span>
             </h2>
 
             <p className="text-base sm:text-lg text-[#969BA3] leading-relaxed mb-6">
-              Sharat Kaul is an executive technology leader and strategic advisor working at the confluence of semiconductor design, advanced packaging, manufacturing scale-up, and national industrial policy.
+              RKS Consulting is an executive technology advisory firm led by Sharat Kaul, operating at the confluence of semiconductor design, advanced packaging, manufacturing scale-up, and national industrial policy.
             </p>
 
             <p className="text-sm sm:text-base text-[#969BA3] leading-relaxed mb-8">

@@ -17,7 +17,7 @@ export function ContactSection() {
     e.preventDefault();
 
     // Trigger direct mailto client with pre-filled parameters
-    const subject = encodeURIComponent(`[Advisory Inquiry: ${formData.topic}] from ${formData.name}`);
+    const subject = encodeURIComponent(`[RKS Consulting - Advisory Inquiry: ${formData.topic}] from ${formData.name}`);
     const body = encodeURIComponent(
       `Name: ${formData.name}\nOrganization: ${formData.organization}\nEmail: ${formData.email}\nTopic: ${formData.topic}\n\nMessage:\n${formData.message}`
     );

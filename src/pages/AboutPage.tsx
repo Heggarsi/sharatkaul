@@ -20,11 +20,11 @@ export function AboutPage() {
 
           <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAFAF8] leading-[1.05] mb-6">
             ABOUT <br />
-            <span className="font-serif italic font-normal text-[#C9A46C]">SHARAT KAUL.</span>
+            <span className="font-serif italic font-normal text-[#C9A46C]">RKS CONSULTING.</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-[#969BA3] max-w-2xl leading-relaxed">
-            A technology and business leader working at the intersection of semiconductors, strategy and ecosystem development.
+            Executive advisory practice founded and led by Sharat Kaul, working at the intersection of semiconductors, strategy and ecosystem development.
           </p>
         </div>
       </section>

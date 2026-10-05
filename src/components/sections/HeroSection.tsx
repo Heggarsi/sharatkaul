@@ -76,7 +76,7 @@ export function HeroSection() {
       {/* Bottom Sub-bar */}
       <div className="relative z-10 max-w-7xl mx-auto w-full pt-6 border-t border-[#242933]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-[#66717D]">
         <div className="flex items-center gap-3">
-          <span className="text-[#FAFAF8]">SHARAT KAUL</span>
+          <span className="text-[#FAFAF8]">RKS CONSULTING</span>
           <span>|</span>
           <span>STRATEGIC ADVISORY · ADVANCED PACKAGING · OSAT</span>
         </div>

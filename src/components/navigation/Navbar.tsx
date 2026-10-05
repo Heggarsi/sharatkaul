@@ -61,7 +61,7 @@ export function Navbar() {
             className="group flex items-center gap-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
           >
             <span className="font-display font-bold tracking-tight text-lg text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors whitespace-nowrap">
-              SHARAT KAUL
+              RKS CONSULTING
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#C9A46C] group-hover:bg-[#E1C58F] transition-colors" />
           </Link>

@@ -26,7 +26,7 @@ export function Footer() {
               </div>
               <Link to="/" className="inline-block group">
                 <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-[#FAFAF8] leading-none select-none group-hover:text-[#C9A46C] transition-colors">
-                  SHARAT KAUL
+                  RKS CONSULTING
                 </h2>
               </Link>
             </div>
@@ -65,7 +65,7 @@ export function Footer() {
               <Linkedin className="w-3.5 h-3.5" />
               <span>LinkedIn ↗</span>
             </a>
-            <span>© 2026 Sharat Kaul. All rights reserved.</span>
+            <span>© 2026 RKS Consulting. All rights reserved.</span>
           </div>
         </div>
       </div>

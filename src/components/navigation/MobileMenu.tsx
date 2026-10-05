@@ -63,7 +63,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           className="flex items-center gap-2"
         >
           <span className="font-display font-bold text-lg tracking-tight text-[#FAFAF8]">
-            SHARAT KAUL
+            RKS CONSULTING
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#C9A46C]" />
         </Link>

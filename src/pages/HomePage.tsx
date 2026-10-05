@@ -301,7 +301,7 @@ export function HomePage() {
             to="/about"
             className="inline-flex items-center gap-2 text-xs font-mono text-[#C9A46C] hover:text-[#E1C58F] transition-colors"
           >
-            <span>Learn More About Sharat's Philosophy</span>
+            <span>Learn More About RKS Consulting</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
