@@ -9,15 +9,13 @@ interface MobileMenuProps {
 }
 
 const NAV_LINKS = [
-  { path: "/", label: "Overview", num: "01" },
-  { path: "/silicon-to-system", label: "Silicon to System", num: "02" },
-  { path: "/journey", label: "Three Decades Journey", num: "03" },
-  { path: "/expertise", label: "Expertise Constellation", num: "04" },
-  { path: "/packaging", label: "Advanced Packaging", num: "05" },
-  { path: "/ecosystem", label: "India Semiconductor", num: "06" },
-  { path: "/insights", label: "Thought Leadership", num: "07" },
-  { path: "/speaking", label: "Speaking & Summits", num: "08" },
-  { path: "/contact", label: "Initiate Dialogue", num: "09" },
+  { path: "/about", label: "About", num: "01" },
+  { path: "/services", label: "Services", num: "02" },
+  { path: "/customers", label: "Customers & Partners", num: "03" },
+  { path: "/experience", label: "Experience & Impact", num: "04" },
+  { path: "/insights", label: "Insights & Perspectives", num: "05" },
+  { path: "/speaking", label: "Speaking", num: "06" },
+  { path: "/contact", label: "Contact", num: "07" },
 ];
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
@@ -55,10 +53,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       role="dialog"
       aria-modal="true"
       aria-label="Site Navigation"
-      className="fixed inset-0 z-50 bg-[#07090D] flex flex-col justify-between p-6 sm:p-10 transition-opacity duration-300"
+      className="fixed inset-0 z-50 bg-[#08090B] flex flex-col justify-between p-6 sm:p-10 transition-opacity duration-300"
     >
       {/* Top Header */}
-      <div className="flex items-center justify-between border-b border-[#1F2633] pb-6">
+      <div className="flex items-center justify-between border-b border-[#242933] pb-6">
         <Link
           to="/"
           onClick={onClose}
@@ -67,12 +65,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <span className="font-display font-bold text-lg tracking-tight text-[#FAFAF8]">
             SHARAT KAUL
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#6FA8FF]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#C9A46C]" />
         </Link>
         <button
           ref={firstFocusableRef}
           onClick={onClose}
-          className="p-2 text-[#A8B0BA] hover:text-[#FAFAF8] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#6FA8FF] rounded"
+          className="p-2 text-[#969BA3] hover:text-[#FAFAF8] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
           aria-label="Close navigation menu"
         >
           <X className="w-6 h-6" />
@@ -80,43 +78,55 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       </div>
 
       {/* Nav List */}
-      <nav className="my-auto py-6 overflow-y-auto max-h-[70vh]">
+      <nav className="my-auto py-6 overflow-y-auto max-h-[65vh]">
         <ul className="flex flex-col gap-4">
           {NAV_LINKS.map((link) => (
             <li key={link.path}>
               <Link
                 to={link.path}
                 onClick={onClose}
-                className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#6FA8FF] rounded"
+                className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
               >
                 <div className="flex items-baseline gap-4">
-                  <span className="text-xs font-mono text-[#66717D] group-hover:text-[#6FA8FF] transition-colors tabular-nums">
+                  <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
                     {link.num}
                   </span>
-                  <span className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#6FA8FF] transition-colors">
+                  <span className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
                     {link.label}
                   </span>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#6FA8FF] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Link>
             </li>
           ))}
         </ul>
+
+        {/* Mobile Action Button */}
+        <div className="mt-8 pt-6 border-t border-[#242933]">
+          <Link
+            to="/contact"
+            onClick={onClose}
+            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#C9A46C] text-[#08090B] font-mono text-xs font-bold tracking-wider uppercase hover:bg-[#E1C58F] transition-all shadow-lg"
+          >
+            <span>Let's Talk</span>
+            <ArrowUpRight className="w-4 h-4 text-[#08090B]" />
+          </Link>
+        </div>
       </nav>
 
       {/* Bottom Footer */}
-      <div className="border-t border-[#1F2633] pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="border-t border-[#242933] pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="text-xs font-mono text-[#66717D]">
-          SEMICONDUCTOR · ADVANCED PACKAGING · STRATEGY
+          TECHNOLOGY · STRATEGY · ECOSYSTEMS
         </div>
         <div className="flex items-center gap-4">
           <a
             href={PROFILE.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-mono text-[#A8B0BA] hover:text-[#FAFAF8] transition-colors"
+            className="flex items-center gap-1.5 text-xs font-mono text-[#969BA3] hover:text-[#FAFAF8] transition-colors"
           >
-            <Linkedin className="w-3.5 h-3.5 text-[#6FA8FF]" />
+            <Linkedin className="w-3.5 h-3.5 text-[#C9A46C]" />
             <span>LinkedIn Profile</span>
           </a>
         </div>

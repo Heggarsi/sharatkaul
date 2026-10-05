@@ -7,16 +7,20 @@ import { Navbar } from "./components/navigation/Navbar";
 import { Footer } from "./components/sections/Footer";
 import { ScrollToTopOnRoute } from "./components/navigation/ScrollToTopOnRoute";
 
-// Dedicated Pages
+// Primary Consulting Pages
 import { HomePage } from "./pages/HomePage";
-import { SiliconToSystemPage } from "./pages/SiliconToSystemPage";
-import { JourneyPage } from "./pages/JourneyPage";
-import { ExpertisePage } from "./pages/ExpertisePage";
-import { PackagingPage } from "./pages/PackagingPage";
-import { EcosystemPage } from "./pages/EcosystemPage";
+import { AboutPage } from "./pages/AboutPage";
+import { ServicesPage } from "./pages/ServicesPage";
+import { CustomersPage } from "./pages/CustomersPage";
+import { ExperiencePage } from "./pages/ExperiencePage";
 import { InsightsPage } from "./pages/InsightsPage";
 import { SpeakingPage } from "./pages/SpeakingPage";
 import { ContactPage } from "./pages/ContactPage";
+
+// Secondary Technical Deep-Dives
+import { SiliconToSystemPage } from "./pages/SiliconToSystemPage";
+import { PackagingPage } from "./pages/PackagingPage";
+import { EcosystemPage } from "./pages/EcosystemPage";
 
 function AppContent() {
   const location = useLocation();
@@ -25,41 +29,47 @@ function AppContent() {
   useLenis(true);
 
   return (
-    <div className="relative min-h-screen bg-[#07090D] text-[#FAFAF8] overflow-x-hidden selection:bg-[#6FA8FF]/30 selection:text-white flex flex-col justify-between">
+    <div className="relative min-h-screen bg-[#08090B] text-[#FAFAF8] overflow-x-hidden selection:bg-[#C9A46C]/30 selection:text-white flex flex-col justify-between">
       {/* Automatically reset window scroll position when changing routes */}
       <ScrollToTopOnRoute />
 
       {/* Global Scroll Progress Bar */}
       <ScrollProgress />
 
-      {/* Top autoscroll button placed at bottom-right side on every page (only symbol) */}
+      {/* Floating Scroll to Top button at bottom-right */}
       <ScrollToTop />
 
-      {/* Interactive Custom Cursor (Desktop Only) */}
+      {/* Subtle Interactive Custom Cursor (Desktop Only) */}
       <CustomCursor />
 
-      {/* Persistent 3-Zone Navbar */}
+      {/* Persistent Consulting Navbar */}
       <Navbar />
 
       {/* Routed Page Content with subtle fade-in transition */}
       <main id="main-content" className="flex-1 flex flex-col">
         <div key={location.pathname} className="animate-page-fade-in flex-1 flex flex-col">
           <Routes location={location}>
+            {/* Primary Consulting Routes */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/silicon-to-system" element={<SiliconToSystemPage />} />
-            <Route path="/journey" element={<JourneyPage />} />
-            <Route path="/expertise" element={<ExpertisePage />} />
-            <Route path="/packaging" element={<PackagingPage />} />
-            <Route path="/ecosystem" element={<EcosystemPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/customers" element={<CustomersPage />} />
+            <Route path="/experience" element={<ExperiencePage />} />
             <Route path="/insights" element={<InsightsPage />} />
             <Route path="/speaking" element={<SpeakingPage />} />
             <Route path="/contact" element={<ContactPage />} />
+
+            {/* Preserved Secondary Deep-Dive Technical Routes */}
+            <Route path="/silicon-to-system" element={<SiliconToSystemPage />} />
+            <Route path="/packaging" element={<PackagingPage />} />
+            <Route path="/ecosystem" element={<EcosystemPage />} />
+            <Route path="/journey" element={<Navigate to="/experience" replace />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </main>
 
-      {/* Cinematic Footer on Every Page */}
+      {/* Executive Consulting Footer */}
       <Footer />
     </div>
   );

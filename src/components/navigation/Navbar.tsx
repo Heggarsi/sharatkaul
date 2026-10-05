@@ -5,13 +5,13 @@ import { MobileMenu } from "./MobileMenu";
 import { MagneticButton } from "../motion/MagneticButton";
 
 const NAV_ITEMS = [
-  { path: "/silicon-to-system", label: "Thesis" },
-  { path: "/journey", label: "Journey" },
-  { path: "/expertise", label: "Expertise" },
-  { path: "/packaging", label: "Packaging" },
-  { path: "/ecosystem", label: "Ecosystem" },
+  { path: "/about", label: "About" },
+  { path: "/services", label: "Services" },
+  { path: "/customers", label: "Customers" },
+  { path: "/experience", label: "Experience" },
   { path: "/insights", label: "Insights" },
   { path: "/speaking", label: "Speaking" },
+  { path: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -24,7 +24,7 @@ export function Navbar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      setScrolled(currentScrollY > 40);
+      setScrolled(currentScrollY > 30);
 
       if (currentScrollY > 300) {
         if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 10) {
@@ -50,7 +50,7 @@ export function Navbar() {
           hidden ? "-translate-y-full" : "translate-y-0"
         } ${
           scrolled
-            ? "bg-[#07090D]/90 backdrop-blur-md border-b border-[#1F2633]/80 py-3.5 shadow-xl shadow-black/20"
+            ? "bg-[#08090B]/90 backdrop-blur-md border-b border-[#242933]/80 py-3.5 shadow-xl shadow-black/30"
             : "bg-transparent border-b border-transparent py-5"
         }`}
       >
@@ -58,22 +58,22 @@ export function Navbar() {
           {/* Zone 1: Single text element wordmark */}
           <Link
             to="/"
-            className="group flex items-center gap-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#6FA8FF] rounded"
+            className="group flex items-center gap-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
           >
-            <span className="font-display font-bold tracking-tight text-lg text-[#FAFAF8] group-hover:text-[#6FA8FF] transition-colors whitespace-nowrap">
+            <span className="font-display font-bold tracking-tight text-lg text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors whitespace-nowrap">
               SHARAT KAUL
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#6FA8FF] group-hover:bg-[#8DBBFF] transition-colors" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C9A46C] group-hover:bg-[#E1C58F] transition-colors" />
           </Link>
 
-          {/* Zone 2: 4-7 clean text navigation links */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-xs font-mono tracking-wider uppercase text-[#A8B0BA]">
+          {/* Zone 2: Clean consulting text navigation links */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-xs font-mono tracking-wider uppercase text-[#969BA3]">
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `hover:text-[#FAFAF8] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#6FA8FF] after:transition-all whitespace-nowrap ${
+                  `hover:text-[#FAFAF8] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:bg-[#C9A46C] after:transition-all whitespace-nowrap ${
                     isActive
                       ? "text-[#FAFAF8] font-semibold after:w-full"
                       : "after:w-0 hover:after:w-full"
@@ -85,19 +85,19 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Zone 3: 1-2 primary actions */}
+          {/* Zone 3: Executive Consultation CTA */}
           <div className="flex items-center gap-3">
             <Link to="/contact">
-              <MagneticButton className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-medium tracking-wide text-[#FAFAF8] bg-[#151A22] hover:bg-[#1F2633] border border-[#1F2633] hover:border-[#6FA8FF]/40 rounded transition-all whitespace-nowrap shadow-sm">
-                <span>Initiate Dialogue</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#6FA8FF]" />
+              <MagneticButton className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-medium tracking-wide text-[#FAFAF8] bg-[#1B1E24] hover:bg-[#242933] border border-[#242933] hover:border-[#C9A46C]/60 rounded-lg transition-all whitespace-nowrap shadow-sm group">
+                <span>Let's Talk</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#C9A46C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </MagneticButton>
             </Link>
 
             {/* Mobile menu trigger */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2 text-[#A8B0BA] hover:text-[#FAFAF8] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#6FA8FF] rounded"
+              className="lg:hidden p-2 text-[#969BA3] hover:text-[#FAFAF8] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
               aria-label="Open mobile navigation menu"
               aria-expanded={mobileMenuOpen}
             >

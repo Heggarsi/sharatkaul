@@ -2,31 +2,29 @@ import { ContactSection } from "../components/sections/ContactSection";
 
 export function ContactPage() {
   return (
-    <div className="pt-24 pb-20">
+    <div className="pt-28 pb-24">
       {/* Editorial Page Header */}
-      <section className="px-6 lg:px-12 py-16 bg-[#07090D] border-b border-[#1F2633]">
+      <section className="px-6 lg:px-12 py-16 bg-[#08090B] border-b border-[#242933]">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-mono text-[#6FA8FF] uppercase tracking-widest">
-              ADVISORY &amp; DIALOGUE
+            <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest">
+              CONFIDENTIAL INQUIRY
             </span>
-            <div className="h-[1px] w-12 bg-[#1F2633]" />
+            <div className="h-[1px] w-12 bg-[#242933]" />
           </div>
 
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#FAFAF8] leading-[1.06] mb-6">
-            LET'S BUILD <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6FA8FF] via-[#FAFAF8] to-[#D88A52]">
-              WHAT COMES NEXT.
-            </span>
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAFAF8] leading-[1.05] mb-6">
+            LET'S TALK ABOUT <br />
+            <span className="font-serif italic font-normal text-[#C9A46C]">WHAT COMES NEXT.</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-[#A8B0BA] max-w-2xl leading-relaxed">
-            Direct executive consultations covering advanced packaging architectures, OSAT manufacturing ramp-ups, fabless-to-package strategies, national roadmaps, and microelectronics workforce pipelines.
+          <p className="text-lg sm:text-xl text-[#969BA3] max-w-2xl leading-relaxed">
+            Whether you are exploring a new technology opportunity, building a manufacturing capability, developing strategic partnerships or navigating a complex industry challenge, let's start a conversation.
           </p>
         </div>
       </section>
 
-      {/* Frame 20: Contact Section */}
+      {/* Main Contact Section */}
       <ContactSection />
     </div>
   );

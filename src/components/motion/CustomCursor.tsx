@@ -70,10 +70,10 @@ export function CustomCursor() {
       <div
         className={`fixed top-0 left-0 rounded-full border transition-all duration-150 ease-out flex items-center justify-center ${
           cursorState === "drag" || cursorState === "view"
-            ? "border-[#6FA8FF] bg-[#07090D]/80 backdrop-blur-sm"
+            ? "border-[#C9A46C] bg-[#08090B]/80 backdrop-blur-sm"
             : isExpanded
-            ? "border-[#6FA8FF] scale-110 bg-[#6FA8FF]/10"
-            : "border-[#A8B0BA]/40 bg-transparent"
+            ? "border-[#C9A46C] scale-110 bg-[#C9A46C]/10"
+            : "border-[#969BA3]/40 bg-transparent"
         }`}
         style={{
           width: `${size}px`,
@@ -82,7 +82,7 @@ export function CustomCursor() {
         }}
       >
         {(cursorState === "view" || cursorState === "drag") && (
-          <span className="text-[9px] font-mono font-semibold tracking-wider text-[#6FA8FF]">
+          <span className="text-[9px] font-mono font-semibold tracking-wider text-[#C9A46C]">
             {cursorState.toUpperCase()}
           </span>
         )}
@@ -91,7 +91,7 @@ export function CustomCursor() {
       {/* Center dot */}
       {cursorState === "default" && (
         <div
-          className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[#6FA8FF] pointer-events-none transition-transform duration-75"
+          className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[#C9A46C] pointer-events-none transition-transform duration-75"
           style={{
             transform: `translate3d(${position.x - 3}px, ${position.y - 3}px, 0)`,
           }}
