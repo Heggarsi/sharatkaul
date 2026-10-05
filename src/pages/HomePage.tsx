@@ -145,7 +145,7 @@ export function HomePage() {
           </div>
 
           {/* Logo Wall Slots */}
-          <div className="p-8 rounded-2xl bg-[#111317]/60 border border-[#242933]">
+          <div className="p-8 rounded-2xl bg-[#111317] border border-[#242933]">
             <div className="text-xs font-mono text-[#66717D] uppercase tracking-wider mb-6 text-center">
               Partner &amp; Client Ecosystem Slots // Confidential Retainers
             </div>

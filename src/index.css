@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-black-base: #08090B;
-  --color-graphite: #111317;
-  --color-graphite-light: #1B1E24;
-  --color-graphite-border: #242933;
+  --color-black-base: #131B2E;
+  --color-graphite: #1D2A45;
+  --color-graphite-light: #28385A;
+  --color-graphite-border: #364B74;
   --color-paper: #F4F3EF;
   --color-white: #FFFFFF;
   --color-white-pure: #FAFAF8;
@@ -28,7 +28,7 @@
 
   html {
     font-family: var(--font-sans);
-    background-color: #08090B;
+    background-color: #131B2E;
     color: #FAFAF8;
   }
 
@@ -60,7 +60,7 @@
 
 /* Silicon wafer concentric lines */
 .wafer-pattern {
-  background-image: radial-gradient(circle at center, rgba(111, 168, 255, 0.08) 0%, rgba(7, 9, 13, 0) 70%);
+  background-image: radial-gradient(circle at center, rgba(111, 168, 255, 0.08) 0%, rgba(19, 27, 46, 0) 70%);
 }
 
 /* Custom scrollbar */
@@ -69,10 +69,10 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #07090D;
+  background: #131B2E;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1F2633;
+  background: #2C3E63;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -102,6 +102,177 @@
 }
 
 /* ==========================================================================
+   DARK MODE SYSTEM (Default & data-theme="dark")
+   Ensures ZERO pitch-black cards or black backgrounds anywhere.
+   Uses a refined, executive deep slate-navy and titanium palette.
+   ========================================================================== */
+
+:root:not([data-theme="light"]),
+html:not([data-theme="light"]),
+html[data-theme="dark"] {
+  background-color: #131B2E !important;
+  color: #FAFAF8 !important;
+}
+
+html:not([data-theme="light"]) body,
+html[data-theme="dark"] body {
+  background-color: #131B2E !important;
+  color: #FAFAF8 !important;
+}
+
+/* Base Surfaces & Backgrounds - No Black Allowed */
+html:not([data-theme="light"]) .bg-\[\#08090B\],
+html[data-theme="dark"] .bg-\[\#08090B\],
+html:not([data-theme="light"]) .bg-\[\#07090D\],
+html[data-theme="dark"] .bg-\[\#07090D\] {
+  background-color: #131B2E !important;
+}
+
+html:not([data-theme="light"]) .bg-\[\#08090B\]\/90,
+html[data-theme="dark"] .bg-\[\#08090B\]\/90 {
+  background-color: rgba(19, 27, 46, 0.94) !important;
+}
+
+html:not([data-theme="light"]) .bg-\[\#08090B\]\/80,
+html[data-theme="dark"] .bg-\[\#08090B\]\/80 {
+  background-color: rgba(19, 27, 46, 0.88) !important;
+}
+
+html:not([data-theme="light"]) .bg-\[\#0D0F12\],
+html[data-theme="dark"] .bg-\[\#0D0F12\],
+html:not([data-theme="light"]) .bg-\[\#0D1117\],
+html[data-theme="dark"] .bg-\[\#0D1117\],
+html:not([data-theme="light"]) .bg-\[\#151A22\],
+html[data-theme="dark"] .bg-\[\#151A22\] {
+  background-color: #172238 !important;
+}
+
+/* Cards & Elevated Surfaces - No Black Cards */
+html:not([data-theme="light"]) .bg-\[\#111317\],
+html[data-theme="dark"] .bg-\[\#111317\] {
+  background-color: #1D2A45 !important;
+  box-shadow: 0 4px 20px -2px rgba(10, 15, 26, 0.35);
+}
+
+/* Pills, Badges & Secondary Surfaces */
+html:not([data-theme="light"]) .bg-\[\#16191F\],
+html[data-theme="dark"] .bg-\[\#16191F\],
+html:not([data-theme="light"]) .bg-\[\#1B1E24\],
+html[data-theme="dark"] .bg-\[\#1B1E24\],
+html:not([data-theme="light"]) .bg-\[\#1F2633\],
+html[data-theme="dark"] .bg-\[\#1F2633\] {
+  background-color: #273758 !important;
+}
+
+html:not([data-theme="light"]) .bg-\[\#1B1E24\]\/80,
+html[data-theme="dark"] .bg-\[\#1B1E24\]\/80 {
+  background-color: rgba(39, 55, 88, 0.85) !important;
+}
+
+html:not([data-theme="light"]) .bg-\[\#1B1E24\]\/60,
+html[data-theme="dark"] .bg-\[\#1B1E24\]\/60 {
+  background-color: rgba(39, 55, 88, 0.65) !important;
+}
+
+html:not([data-theme="light"]) .bg-\[\#242933\],
+html[data-theme="dark"] .bg-\[\#242933\] {
+  background-color: #31446B !important;
+}
+
+html:not([data-theme="light"]) .bg-\[\#242933\]\/50,
+html[data-theme="dark"] .bg-\[\#242933\]\/50 {
+  background-color: rgba(49, 68, 107, 0.5) !important;
+}
+
+/* Generic Black Utilities Overridden */
+html:not([data-theme="light"]) .bg-black,
+html[data-theme="dark"] .bg-black {
+  background-color: #131B2E !important;
+}
+
+html:not([data-theme="light"]) .bg-black\/90,
+html[data-theme="dark"] .bg-black\/90 {
+  background-color: rgba(19, 27, 46, 0.94) !important;
+}
+
+html:not([data-theme="light"]) .bg-black\/80,
+html[data-theme="dark"] .bg-black\/80 {
+  background-color: rgba(19, 27, 46, 0.85) !important;
+}
+
+html:not([data-theme="light"]) .bg-black\/50,
+html[data-theme="dark"] .bg-black\/50 {
+  background-color: rgba(19, 27, 46, 0.55) !important;
+}
+
+html:not([data-theme="light"]) .bg-black\/30,
+html[data-theme="dark"] .bg-black\/30 {
+  background-color: rgba(19, 27, 46, 0.35) !important;
+}
+
+/* Borders in Dark Mode */
+html:not([data-theme="light"]) .border-\[\#242933\],
+html[data-theme="dark"] .border-\[\#242933\],
+html:not([data-theme="light"]) .border-\[\#1F2633\],
+html[data-theme="dark"] .border-\[\#1F2633\] {
+  border-color: #2C3E63 !important;
+}
+
+html:not([data-theme="light"]) .border-\[\#242933\]\/50,
+html[data-theme="dark"] .border-\[\#242933\]\/50,
+html:not([data-theme="light"]) .border-\[\#242933\]\/60,
+html[data-theme="dark"] .border-\[\#242933\]\/60,
+html:not([data-theme="light"]) .border-\[\#242933\]\/80,
+html[data-theme="dark"] .border-\[\#242933\]\/80 {
+  border-color: rgba(44, 62, 99, 0.7) !important;
+}
+
+html:not([data-theme="light"]) .divide-\[\#242933\] > :not([hidden]) ~ :not([hidden]),
+html[data-theme="dark"] .divide-\[\#242933\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #2C3E63 !important;
+}
+
+/* Gradients Overridden in Dark Mode (No Black Gradients) */
+html:not([data-theme="light"]) .from-\[\#08090B\],
+html[data-theme="dark"] .from-\[\#08090B\],
+html:not([data-theme="light"]) .from-\[\#07090D\],
+html[data-theme="dark"] .from-\[\#07090D\],
+html:not([data-theme="light"]) .from-black,
+html[data-theme="dark"] .from-black {
+  --tw-gradient-from: #131B2E var(--tw-gradient-from-position) !important;
+}
+
+html:not([data-theme="light"]) .via-\[\#08090B\]\/80,
+html[data-theme="dark"] .via-\[\#08090B\]\/80 {
+  --tw-gradient-via: rgba(19, 27, 46, 0.88) var(--tw-gradient-via-position) !important;
+}
+
+html:not([data-theme="light"]) .to-\[\#08090B\],
+html[data-theme="dark"] .to-\[\#08090B\],
+html:not([data-theme="light"]) .to-\[\#07090D\],
+html[data-theme="dark"] .to-\[\#07090D\],
+html:not([data-theme="light"]) .to-black,
+html[data-theme="dark"] .to-black {
+  --tw-gradient-to: #131B2E var(--tw-gradient-to-position) !important;
+}
+
+/* Hovers in Dark Mode */
+html:not([data-theme="light"]) .hover\:bg-\[\#1B1E24\]:hover,
+html[data-theme="dark"] .hover\:bg-\[\#1B1E24\]:hover {
+  background-color: #31446B !important;
+}
+
+html:not([data-theme="light"]) .hover\:bg-\[\#242933\]:hover,
+html[data-theme="dark"] .hover\:bg-\[\#242933\]:hover {
+  background-color: #3B5282 !important;
+}
+
+html:not([data-theme="light"]) .hover\:border-\[\#242933\]:hover,
+html[data-theme="dark"] .hover\:border-\[\#242933\]:hover {
+  border-color: #425D94 !important;
+}
+
+/* ==========================================================================
    FRESH LIGHT MODE SYSTEM (Activated via data-theme="light")
    Preserves dark mode 100% as-is; provides high-contrast executive light mode
    ========================================================================== */
@@ -118,23 +289,34 @@ html[data-theme="light"] body {
 }
 
 /* Base Surfaces & Backgrounds */
-html[data-theme="light"] .bg-\[\#08090B\] {
+html[data-theme="light"] .bg-\[\#08090B\],
+html[data-theme="light"] .bg-\[\#07090D\],
+html[data-theme="light"] .bg-black {
   background-color: #F8F9FA !important;
 }
 
-html[data-theme="light"] .bg-\[\#08090B\]\/90 {
-  background-color: rgba(255, 255, 255, 0.92) !important;
+html[data-theme="light"] .bg-\[\#08090B\]\/90,
+html[data-theme="light"] .bg-black\/90 {
+  background-color: rgba(255, 255, 255, 0.94) !important;
 }
 
-html[data-theme="light"] .bg-\[\#08090B\]\/80 {
+html[data-theme="light"] .bg-\[\#08090B\]\/80,
+html[data-theme="light"] .bg-black\/80 {
   background-color: rgba(255, 255, 255, 0.88) !important;
 }
 
-html[data-theme="light"] .bg-\[\#0D0F12\] {
+html[data-theme="light"] .bg-\[\#0D0F12\],
+html[data-theme="light"] .bg-\[\#0D1117\],
+html[data-theme="light"] .bg-\[\#151A22\] {
   background-color: #FFFFFF !important;
 }
 
-html[data-theme="light"] .bg-\[\#111317\] {
+html[data-theme="light"] .bg-\[\#111317\],
+html[data-theme="light"] .bg-\[\#111317\]\/90,
+html[data-theme="light"] .bg-\[\#111317\]\/80,
+html[data-theme="light"] .bg-\[\#111317\]\/70,
+html[data-theme="light"] .bg-\[\#111317\]\/60,
+html[data-theme="light"] .bg-\[\#111317\]\/50 {
   background-color: #FFFFFF !important;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px 0 rgba(15, 23, 42, 0.03);
 }
@@ -143,16 +325,15 @@ html[data-theme="light"] .bg-\[\#16191F\] {
   background-color: #F1F5F9 !important;
 }
 
-html[data-theme="light"] .bg-\[\#1B1E24\] {
+html[data-theme="light"] .bg-\[\#1B1E24\],
+html[data-theme="light"] .bg-\[\#1F2633\] {
   background-color: #F1F5F9 !important;
 }
 
-html[data-theme="light"] .bg-\[\#1B1E24\]\/80 {
-  background-color: rgba(241, 245, 249, 0.9) !important;
-}
-
+html[data-theme="light"] .bg-\[\#1B1E24\]\/80,
+html[data-theme="light"] .bg-\[\#1B1E24\]\/70,
 html[data-theme="light"] .bg-\[\#1B1E24\]\/60 {
-  background-color: rgba(241, 245, 249, 0.7) !important;
+  background-color: rgba(241, 245, 249, 0.9) !important;
 }
 
 html[data-theme="light"] .bg-\[\#242933\] {
@@ -163,8 +344,37 @@ html[data-theme="light"] .bg-\[\#242933\]\/50 {
   background-color: rgba(226, 232, 240, 0.6) !important;
 }
 
+/* Gradients in Light Mode (No Black Gradients) */
+html[data-theme="light"] .from-\[\#08090B\],
+html[data-theme="light"] .from-\[\#07090D\],
+html[data-theme="light"] .from-\[\#111317\],
+html[data-theme="light"] .from-black {
+  --tw-gradient-from: #FFFFFF var(--tw-gradient-from-position) !important;
+}
+
+html[data-theme="light"] .via-\[\#08090B\],
+html[data-theme="light"] .via-\[\#111317\],
+html[data-theme="light"] .via-\[\#08090B\]\/80 {
+  --tw-gradient-via: #F8F9FA var(--tw-gradient-via-position) !important;
+}
+
+html[data-theme="light"] .to-\[\#08090B\],
+html[data-theme="light"] .to-\[\#07090D\],
+html[data-theme="light"] .to-\[\#111317\],
+html[data-theme="light"] .to-\[\#1B1E24\],
+html[data-theme="light"] .to-black {
+  --tw-gradient-to: #F1F5F9 var(--tw-gradient-to-position) !important;
+}
+
+/* Drop Shadows in Light Mode */
+html[data-theme="light"] .shadow-black,
+html[data-theme="light"] [class*="shadow-black"] {
+  --tw-shadow-color: rgba(15, 23, 42, 0.08) !important;
+}
+
 /* Borders */
-html[data-theme="light"] .border-\[\#242933\] {
+html[data-theme="light"] .border-\[\#242933\],
+html[data-theme="light"] .border-\[\#1F2633\] {
   border-color: #E2E8F0 !important;
 }
 

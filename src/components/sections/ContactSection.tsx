@@ -27,12 +27,12 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-28 px-6 lg:px-12 bg-[#08090B] border-t border-[#242933]">
+    <section id="contact" className="relative py-12 lg:py-16 px-6 lg:px-12 bg-[#08090B]">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+        {/* Header Badge */}
         <div className="flex items-center gap-3 mb-6">
           <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest">
-            EXECUTIVE DIALOGUE
+            CONFIDENTIAL INQUIRY · EXECUTIVE DIALOGUE
           </span>
           <div className="h-[1px] w-12 bg-[#242933]" />
         </div>
@@ -41,12 +41,12 @@ export function ContactSection() {
           {/* Left Text & Links */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#FAFAF8] leading-[1.08] mb-6">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#FAFAF8] leading-[1.08] mb-6">
                 LET'S TALK ABOUT <br />
                 <span className="font-serif italic font-normal text-[#C9A46C]">
                   WHAT COMES NEXT.
                 </span>
-              </h2>
+              </h1>
 
               <p className="text-base text-[#969BA3] leading-relaxed mb-8">
                 Whether you are exploring a new technology opportunity, building a manufacturing capability, developing strategic partnerships or navigating a complex industry challenge, let's start a conversation.

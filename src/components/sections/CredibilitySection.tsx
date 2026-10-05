@@ -66,7 +66,7 @@ export function CredibilitySection() {
           {metrics.map((item, idx) => (
             <div
               key={item.title}
-              className="group relative flex flex-col justify-between h-full p-6 rounded-2xl bg-[#111317]/70 border border-[#242933] hover:border-[#C9A46C]/60 hover:bg-[#1B1E24]/70 transition-all duration-300 shadow-lg shadow-black/20"
+              className="group relative flex flex-col justify-between h-full p-6 rounded-2xl bg-[#111317] border border-[#242933] hover:border-[#C9A46C]/60 hover:bg-[#1B1E24] transition-all duration-300 shadow-lg"
             >
               <div className="flex flex-col">
                 {/* Top Row: Sub-label & Index */}

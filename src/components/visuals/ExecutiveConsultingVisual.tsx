@@ -3,7 +3,7 @@ import { ArrowUpRight, Globe, Layers, ShieldCheck, TrendingUp } from "lucide-rea
 
 export function ExecutiveConsultingVisual() {
   return (
-    <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4] max-w-[580px] mx-auto rounded-2xl overflow-hidden border border-[#242933] bg-gradient-to-br from-[#111317] via-[#08090B] to-[#1B1E24] p-6 sm:p-8 flex flex-col justify-between shadow-2xl shadow-black/80 group">
+    <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4] max-w-[580px] mx-auto rounded-2xl overflow-hidden border border-[#242933] bg-[#111317] p-6 sm:p-8 flex flex-col justify-between shadow-2xl group">
       {/* Background Architectural Geometry & Ambient Warm Lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(201,164,108,0.12)_0%,rgba(8,9,11,0)_70%)] pointer-events-none" />
       <div className="absolute inset-0 technical-grid opacity-20 pointer-events-none" />
@@ -34,14 +34,14 @@ export function ExecutiveConsultingVisual() {
 
       {/* Center Editorial Composition */}
       <div className="relative z-10 my-auto py-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B1E24]/80 border border-[#C9A46C]/30 text-[10px] font-mono text-[#E1C58F] mb-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16191F] border border-[#C9A46C]/30 text-[10px] font-mono text-[#C9A46C] mb-4">
           <Globe className="w-3 h-3 text-[#C9A46C]" />
           <span>Cross-Sector Semiconductor Advisory</span>
         </div>
 
         <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#FAFAF8] tracking-tight leading-snug mb-3">
           Connecting technology, <br />
-          <span className="italic text-[#E1C58F]">capital</span> &amp; national policy.
+          <span className="italic text-[#C9A46C]">capital</span> &amp; national policy.
         </h3>
 
         <p className="text-xs sm:text-sm text-[#969BA3] max-w-sm leading-relaxed">
@@ -51,15 +51,15 @@ export function ExecutiveConsultingVisual() {
 
       {/* Bottom Matrix Indicators */}
       <div className="relative z-10 pt-4 border-t border-[#242933]/80 grid grid-cols-3 gap-2 text-left">
-        <div className="p-2.5 rounded-lg bg-[#111317]/60 border border-[#242933]">
+        <div className="p-2.5 rounded-lg bg-[#16191F] border border-[#242933]">
           <div className="text-[9px] font-mono uppercase tracking-wider text-[#969BA3]">Domain</div>
           <div className="text-xs font-semibold text-[#FAFAF8] mt-0.5 truncate">Advanced OSAT</div>
         </div>
-        <div className="p-2.5 rounded-lg bg-[#111317]/60 border border-[#242933]">
+        <div className="p-2.5 rounded-lg bg-[#16191F] border border-[#242933]">
           <div className="text-[9px] font-mono uppercase tracking-wider text-[#969BA3]">Impact</div>
           <div className="text-xs font-semibold text-[#C9A46C] mt-0.5 truncate">National Scale</div>
         </div>
-        <div className="p-2.5 rounded-lg bg-[#111317]/60 border border-[#242933]">
+        <div className="p-2.5 rounded-lg bg-[#16191F] border border-[#242933]">
           <div className="text-[9px] font-mono uppercase tracking-wider text-[#969BA3]">Experience</div>
           <div className="text-xs font-semibold text-[#FAFAF8] mt-0.5 truncate">30+ Years</div>
         </div>
