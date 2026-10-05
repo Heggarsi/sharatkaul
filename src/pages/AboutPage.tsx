@@ -4,28 +4,84 @@ import { PROFILE } from "../data/profile";
 import { EDUCATION_DATA } from "../data/education";
 import { LEADERSHIP_ROLES } from "../data/organizations";
 import { RECOGNITIONS } from "../data/awards";
+import rksProfilePic from "../assets/images/Rksprofilepic.png";
 
 export function AboutPage() {
   return (
     <div className="pt-28 pb-24">
-      {/* Editorial Page Header */}
-      <section className="px-6 lg:px-12 py-16 bg-[#08090B] border-b border-[#242933]">
+      {/* Editorial Page Header with Photo on Right */}
+      <section className="px-6 lg:px-12 py-16 lg:py-20 bg-[#08090B] border-b border-[#242933]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest">
-              EXECUTIVE PROFILE
-            </span>
-            <div className="h-[1px] w-12 bg-[#242933]" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest">
+                  EXECUTIVE PROFILE
+                </span>
+                <div className="h-[1px] w-12 bg-[#242933]" />
+              </div>
+
+              <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAFAF8] leading-[1.05] mb-6">
+                ABOUT <br />
+                <span className="font-serif italic font-normal text-[#C9A46C]">RKS CONSULTING.</span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-[#969BA3] max-w-2xl leading-relaxed mb-8">
+                Executive advisory practice founded and led by Sharat Kaul, working at the intersection of semiconductors, strategy and ecosystem development.
+              </p>
+
+              {/* Quick credential metrics */}
+              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#242933]">
+                <div>
+                  <div className="font-display text-2xl sm:text-3xl font-bold text-[#FAFAF8]">30+</div>
+                  <div className="text-[11px] font-mono text-[#969BA3] uppercase tracking-wider mt-1">Years Silicon Experience</div>
+                </div>
+                <div>
+                  <div className="font-display text-2xl sm:text-3xl font-bold text-[#C9A46C]">US &amp; IN</div>
+                  <div className="text-[11px] font-mono text-[#969BA3] uppercase tracking-wider mt-1">Ecosystem Leadership</div>
+                </div>
+                <div>
+                  <div className="font-display text-2xl sm:text-3xl font-bold text-[#FAFAF8]">OSAT</div>
+                  <div className="text-[11px] font-mono text-[#969BA3] uppercase tracking-wider mt-1">Packaging &amp; Strategy</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Photo */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-md group">
+                {/* Ambient glow accent behind photo */}
+                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-[#0080FF]/20 via-[#C9A46C]/20 to-transparent blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
+
+                {/* Main Card */}
+                <div className="relative rounded-2xl overflow-hidden border border-[#242933] bg-[#111317] shadow-2xl">
+                  <img
+                    src={rksProfilePic}
+                    alt="Sharat Kaul - Founder & Principal Consultant, RKS Consulting"
+                    className="w-full h-auto max-h-[460px] object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+
+                  {/* Subtle lower vignette overlay with title */}
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#08090B] via-[#08090B]/80 to-transparent p-5 pt-12">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="font-mono text-base font-bold text-[#FAFAF8]">
+                          Sharat Kaul
+                        </div>
+                        <div className="text-[11px] font-mono text-[#C9A46C] uppercase tracking-wider">
+                          Founder &amp; Principal Consultant
+                        </div>
+                      </div>
+                      <span className="px-2.5 py-1 rounded bg-[#1B1E24]/80 border border-[#242933] text-[10px] font-mono text-[#969BA3]">
+                        RKS
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAFAF8] leading-[1.05] mb-6">
-            ABOUT <br />
-            <span className="font-serif italic font-normal text-[#C9A46C]">RKS CONSULTING.</span>
-          </h1>
-
-          <p className="text-lg sm:text-xl text-[#969BA3] max-w-2xl leading-relaxed">
-            Executive advisory practice founded and led by Sharat Kaul, working at the intersection of semiconductors, strategy and ecosystem development.
-          </p>
         </div>
       </section>
 

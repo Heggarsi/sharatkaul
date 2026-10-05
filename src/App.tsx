@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext";
 import { useLenis } from "./hooks/useLenis";
 import { ScrollProgress } from "./components/motion/ScrollProgress";
 import { ScrollToTop } from "./components/motion/ScrollToTop";
@@ -94,8 +95,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }

@@ -5,6 +5,8 @@ import { MobileMenu } from "./MobileMenu";
 import { MagneticButton } from "../motion/MagneticButton";
 import { SERVICES_DATA } from "../../data/services";
 import { RKSLogo } from "../ui/RKSLogo";
+import { ThemeToggle } from "../ui/ThemeToggle";
+import headerLogo from "../../assets/images/regenerated_image_1791204494859.jpg";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -81,21 +83,32 @@ export function Navbar() {
           hidden ? "-translate-y-full" : "translate-y-0"
         } ${
           scrolled
-            ? "bg-[#08090B]/90 backdrop-blur-md border-b border-[#242933]/80 py-3.5 shadow-xl shadow-black/30"
-            : "bg-transparent border-b border-transparent py-5"
+            ? "bg-[#08090B]/90 backdrop-blur-md border-b border-[#242933]/80 py-2.5 shadow-xl shadow-black/30"
+            : "bg-transparent border-b border-transparent py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-          {/* Zone 1: Wordmark with Official Logo Emblem */}
+          {/* Zone 1: Wordmark with Real Image Emblem and RKS CONSULTING Text Placed Below */}
           <Link
             to="/"
-            className="group flex items-center gap-2.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
+            className="group flex flex-col items-start gap-1 sm:gap-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded py-1"
             aria-label="RKS Consulting Home"
           >
-            <RKSLogo variant="emblem" className="h-6 w-auto group-hover:scale-105 transition-transform" />
-            <span className="font-display font-bold tracking-tight text-lg text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors whitespace-nowrap">
-              RKS CONSULTING
-            </span>
+            {/* Real image emblem */}
+            <img
+              src={headerLogo}
+              alt="RKS"
+              className="h-7 sm:h-8 md:h-8.5 w-auto object-contain group-hover:opacity-95 transition-opacity"
+            />
+            {/* RKS CONSULTING text placed below the logo as a new line with a big font */}
+            <div className="flex items-baseline gap-1.5 sm:gap-2">
+              <span className="font-mono text-xl sm:text-2xl font-black tracking-tight text-[#FAFAF8] leading-none group-hover:text-white transition-colors">
+                RKS
+              </span>
+              <span className="text-xs sm:text-sm tracking-[0.24em] text-[#C9A46C] font-mono uppercase font-bold leading-none">
+                CONSULTING
+              </span>
+            </div>
           </Link>
 
           {/* Zone 2: Navigation links with Services dropdown */}
@@ -249,8 +262,11 @@ export function Navbar() {
             </NavLink>
           </nav>
 
-          {/* Zone 3: Executive Consultation CTA */}
-          <div className="flex items-center gap-3">
+          {/* Zone 3: Executive Consultation CTA and Theme Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Dark / Light Mode Toggle Button */}
+            <ThemeToggle showLabel={false} />
+
             <Link to="/contact">
               <MagneticButton className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-medium tracking-wide text-[#FAFAF8] bg-[#1B1E24] hover:bg-[#242933] border border-[#242933] hover:border-[#C9A46C]/60 rounded-lg transition-all whitespace-nowrap shadow-sm group">
                 <span>Let's Talk</span>
