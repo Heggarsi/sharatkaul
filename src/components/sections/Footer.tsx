@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Linkedin, ShieldCheck } from "lucide-react";
 import { PROFILE } from "../../data/profile";
 import { RKSLogo } from "../ui/RKSLogo";
-import footerLogo from "../../assets/images/regenerated_image_1791204533956.jpg";
 
 export function Footer() {
   const navLinks = [
@@ -23,20 +22,11 @@ export function Footer() {
         <div className="border-b border-[#242933] pb-14 mb-12">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
             <div>
-              <Link to="/" className="inline-flex flex-col items-start gap-3 group mb-4" aria-label="RKS Consulting">
-                <img
-                  src={footerLogo}
-                  alt="RKS"
-                  className="h-14 sm:h-16 w-auto object-contain group-hover:scale-[1.02] transition-transform"
+              <Link to="/" className="inline-flex items-center group mb-4" aria-label="RKS Consulting">
+                <RKSLogo
+                  className="h-16 sm:h-20 md:h-24 w-auto object-contain group-hover:scale-[1.02] transition-transform"
+                  alt="RKS Consulting"
                 />
-                <div className="flex flex-col sm:flex-row sm:items-baseline gap-1.5 sm:gap-3">
-                  <span className="font-mono text-3xl sm:text-4xl font-black tracking-tight text-[#FAFAF8] leading-none">
-                    RKS
-                  </span>
-                  <span className="text-sm sm:text-base tracking-[0.25em] text-[#C9A46C] font-mono uppercase font-bold leading-none">
-                    CONSULTING
-                  </span>
-                </div>
               </Link>
             </div>
           </div>

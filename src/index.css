@@ -79,6 +79,25 @@
   background: #66717D;
 }
 
+/* ==========================================================================
+   MULTI-THEME LOGO SYSTEM (Transparent BG with theme-specific text colors)
+   ========================================================================== */
+.rks-logo-light {
+  display: none !important;
+}
+.rks-logo-dark {
+  display: block !important;
+}
+
+html[data-theme="light"] .rks-logo-light,
+html.light .rks-logo-light {
+  display: block !important;
+}
+html[data-theme="light"] .rks-logo-dark,
+html.light .rks-logo-dark {
+  display: none !important;
+}
+
 /* Subtle route change fade-in animation */
 @keyframes pageFadeIn {
   from {

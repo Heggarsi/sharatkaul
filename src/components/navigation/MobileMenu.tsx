@@ -5,7 +5,6 @@ import { PROFILE } from "../../data/profile";
 import { SERVICES_DATA } from "../../data/services";
 import { RKSLogo } from "../ui/RKSLogo";
 import { ThemeToggle } from "../ui/ThemeToggle";
-import headerLogo from "../../assets/images/regenerated_image_1791204494859.jpg";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -56,22 +55,13 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <Link
           to="/"
           onClick={onClose}
-          className="flex flex-col items-start gap-1"
+          className="flex items-center focus:outline-none"
           aria-label="RKS Consulting Home"
         >
-          <img
-            src={headerLogo}
-            alt="RKS"
-            className="h-8 w-auto object-contain"
+          <RKSLogo
+            className="h-10 sm:h-12 w-auto object-contain"
+            alt="RKS Consulting"
           />
-          <div className="flex items-baseline gap-1.5">
-            <span className="font-mono text-xl sm:text-2xl font-black tracking-tight text-[#FAFAF8] leading-none">
-              RKS
-            </span>
-            <span className="text-xs tracking-[0.24em] text-[#C9A46C] font-mono uppercase font-bold leading-none">
-              CONSULTING
-            </span>
-          </div>
         </Link>
         <div className="flex items-center gap-2">
           <ThemeToggle showLabel={false} />

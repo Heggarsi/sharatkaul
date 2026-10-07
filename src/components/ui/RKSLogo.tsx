@@ -1,28 +1,35 @@
 import React from "react";
-import headerLogo from "../../assets/images/regenerated_image_1791204494859.jpg";
-import footerLogo from "../../assets/images/regenerated_image_1791204533956.jpg";
+import logoLight from "../../assets/images/rks_logo_light.png";
+import logoDark from "../../assets/images/rks_logo_dark.png";
 
 interface RKSLogoProps {
   className?: string;
-  theme?: "dark" | "light" | "original";
   alt?: string;
 }
 
 export function RKSLogo({
-  className = "h-14 w-auto object-contain",
-  theme = "dark",
-  alt = "RKS Consulting - Ideas | Strategy | Semiconductors",
+  className = "h-12 w-auto object-contain",
+  alt = "RKS Consulting",
 }: RKSLogoProps) {
-  const isOriginal = theme === "original" || theme === "light";
-  const imageSrc = isOriginal ? footerLogo : headerLogo;
-
   return (
-    <img
-      src={imageSrc}
-      alt={alt}
-      className={className}
-      loading="eager"
-      decoding="async"
-    />
+    <div className="relative inline-flex items-center select-none">
+      {/* Light Theme Logo: Transparent background with deep corporate navy & electric blue */}
+      <img
+        src={logoLight}
+        alt={alt}
+        className={`${className} rks-logo-light object-contain transition-transform duration-200`}
+        loading="eager"
+        decoding="async"
+      />
+      {/* Dark Theme Logo: Transparent background with crisp luminous white & electric cyan */}
+      <img
+        src={logoDark}
+        alt={alt}
+        className={`${className} rks-logo-dark object-contain transition-transform duration-200`}
+        loading="eager"
+        decoding="async"
+      />
+    </div>
   );
 }
+

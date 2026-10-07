@@ -6,7 +6,6 @@ import { MagneticButton } from "../motion/MagneticButton";
 import { SERVICES_DATA } from "../../data/services";
 import { RKSLogo } from "../ui/RKSLogo";
 import { ThemeToggle } from "../ui/ThemeToggle";
-import headerLogo from "../../assets/images/regenerated_image_1791204494859.jpg";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -88,27 +87,16 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-          {/* Zone 1: Wordmark with Real Image Emblem and RKS CONSULTING Text Placed Below */}
+          {/* Zone 1: Standalone Large Brand Logo (Theme-Responsive with Transparent Background) */}
           <Link
             to="/"
-            className="group flex flex-col items-start gap-1 sm:gap-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded py-1"
+            className="group flex items-center focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded py-0.5"
             aria-label="RKS Consulting Home"
           >
-            {/* Real image emblem */}
-            <img
-              src={headerLogo}
-              alt="RKS"
-              className="h-7 sm:h-8 md:h-8.5 w-auto object-contain group-hover:opacity-95 transition-opacity"
+            <RKSLogo
+              className="h-10 sm:h-12 md:h-13 w-auto object-contain group-hover:opacity-95 transition-opacity"
+              alt="RKS Consulting"
             />
-            {/* RKS CONSULTING text placed below the logo as a new line with a big font */}
-            <div className="flex items-baseline gap-1.5 sm:gap-2">
-              <span className="font-mono text-xl sm:text-2xl font-black tracking-tight text-[#FAFAF8] leading-none group-hover:text-white transition-colors">
-                RKS
-              </span>
-              <span className="text-xs sm:text-sm tracking-[0.24em] text-[#C9A46C] font-mono uppercase font-bold leading-none">
-                CONSULTING
-              </span>
-            </div>
           </Link>
 
           {/* Zone 2: Navigation links with Services dropdown */}
