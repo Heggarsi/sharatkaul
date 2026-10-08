@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Calendar, MapPin, Mic, Presentation, Users, Volume2 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Calendar, FileText, MapPin, Mic, Play, Presentation, Users, Video, Volume2, Youtube } from "lucide-react";
 import { SPEAKING_ENGAGEMENTS } from "../data/speaking";
+import { MEDIA_ITEMS } from "../data/media";
 
 export function SpeakingPage() {
   const speakingTopics = [
@@ -99,6 +100,136 @@ export function SpeakingPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Media & Expert Interviews */}
+      <section className="py-20 px-6 lg:px-12 bg-[#08090B]">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-2xl mb-12">
+            <div className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest mb-3">
+              FEATURED MEDIA
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#FAFAF8]">
+              Interviews &amp; Media Appearances
+            </h2>
+            <p className="text-sm text-[#969BA3] mt-2">
+              Broadcast dialogues, technical publications, and industry interviews discussing India's semiconductor manufacturing ecosystem and product design innovation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {MEDIA_ITEMS.filter((item) => item.url).map((media) => {
+              const isVideo = media.format === "Video Interview";
+              return (
+                <a
+                  key={media.id}
+                  href={media.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-2xl bg-[#111317] border border-[#242933] hover:border-[#C9A46C]/60 transition-all flex flex-col justify-between shadow-xl overflow-hidden hover:shadow-2xl hover:shadow-[#C9A46C]/5"
+                >
+                  <div>
+                    {media.thumbnailUrl ? (
+                      <div className="relative aspect-video w-full overflow-hidden bg-[#08090B]">
+                        <img
+                          src={media.thumbnailUrl}
+                          alt={media.title}
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                        />
+                        {/* Gradient overlay for depth */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#111317] via-black/25 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+
+                        {/* Centered Play Button overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          <div className="w-14 h-14 rounded-full bg-[#08090B]/85 backdrop-blur-md border border-[#C9A46C]/80 text-[#C9A46C] flex items-center justify-center shadow-[0_0_24px_rgba(201,164,108,0.35)] group-hover:scale-110 group-hover:bg-[#C9A46C] group-hover:text-[#08090B] transition-all duration-300">
+                            <Play className="w-5 h-5 fill-current ml-0.5" />
+                          </div>
+                        </div>
+
+                        {/* Floating Top Badges */}
+                        <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#08090B]/85 backdrop-blur-md border border-[#C9A46C]/50 text-xs font-mono text-[#C9A46C] font-semibold shadow-md">
+                            <Video className="w-3.5 h-3.5 text-[#C9A46C]" />
+                            <span>Video Interview</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#08090B]/85 backdrop-blur-md border border-[#242933] text-[11px] font-mono text-white/90 shadow-md">
+                            <Youtube className="w-3.5 h-3.5 text-[#FF0000]" />
+                            <span>YouTube</span>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="h-2 w-full bg-gradient-to-r from-[#C9A46C] via-[#E1C58F] to-[#242933]" />
+                    )}
+
+                    <div className="p-7 sm:p-9">
+                      {!media.thumbnailUrl && (
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1B1E24] border border-[#242933] text-xs font-mono text-[#C9A46C] font-semibold">
+                            <FileText className="w-3.5 h-3.5" />
+                            <span>{media.format}</span>
+                          </div>
+                          <span className="text-xs font-mono text-[#66717D]">
+                            {media.year}
+                          </span>
+                        </div>
+                      )}
+
+                      {media.thumbnailUrl && (
+                        <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#66717D]">
+                          <span className="text-[#C9A46C] font-semibold tracking-wider uppercase text-[11px]">
+                            {media.source}
+                          </span>
+                          <span>{media.year}</span>
+                        </div>
+                      )}
+
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors mb-3 leading-snug">
+                        {media.title}
+                      </h3>
+
+                      {(media.speakers || media.featuredExpert) && (
+                        <div className="mb-4 text-xs font-sans text-[#E1C58F]/90 bg-[#1B1E24] p-3.5 rounded-xl border border-[#242933]">
+                          <span className="font-mono text-[10px] uppercase text-[#66717D] block mb-1">
+                            {media.speakers ? "Speakers" : "Featured Expert"}
+                          </span>
+                          {media.speakers || media.featuredExpert}
+                        </div>
+                      )}
+
+                      <p className="text-sm text-[#969BA3] leading-relaxed mb-6">
+                        {media.summary}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="px-7 pb-7 sm:px-9 sm:pb-9 pt-0">
+                    <div className="pt-4 border-t border-[#242933]">
+                      <div className="flex items-center justify-between text-xs font-mono text-[#66717D] mb-3">
+                        <span className="truncate pr-2">PLATFORM: {media.source}</span>
+                        <span className="inline-flex items-center gap-1.5 text-[#C9A46C] text-xs shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform font-semibold">
+                          <span>{isVideo ? "Watch Interview" : "Read Article"}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {media.topics.map((t) => (
+                          <span
+                            key={t}
+                            className="px-2.5 py-0.5 rounded bg-[#1B1E24] border border-[#242933] text-[10px] font-mono text-[#969BA3]"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

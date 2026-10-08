@@ -1,14 +1,43 @@
+import electronicaThumbnail from "../assets/images/electronica_interview_thumbnail.jpg";
+
 export interface MediaItem {
   id: string;
   title: string;
   source: string;
-  format: "Industry Analysis" | "Symposium Proceedings" | "Policy Brief" | "Executive Discourse";
+  format: "Video Interview" | "Published Article / Expert Interview" | "Industry Analysis" | "Symposium Proceedings" | "Policy Brief" | "Executive Discourse";
   year: string;
   summary: string;
   topics: string[];
+  url?: string;
+  thumbnailUrl?: string;
+  speakers?: string;
+  featuredExpert?: string;
 }
 
 export const MEDIA_ITEMS: MediaItem[] = [
+  {
+    id: "media-electronica-interview",
+    title: "Industry Insights: Developing India’s Electronics & Semiconductor Manufacturing Ecosystem",
+    source: "electronica India & productronica India",
+    format: "Video Interview",
+    year: "2024",
+    thumbnailUrl: electronicaThumbnail,
+    speakers: "Sharat Kaul (India Representative, iNEMI / Advanced Packaging Advisor) in conversation with Sanjeev Keskar (CEO, Arvind Consultancy; Chairman, National Advisory Council)",
+    summary: "An in-depth discussion on strengthening India's electronics manufacturing supply chain, closing the gap between active silicon and passive components, scaling domestic OSAT/packaging capabilities, and leveraging government policy frameworks to establish India as a competitive global electronics hub.",
+    topics: ["OSAT / Packaging", "Supply Chain", "Active & Passive Components", "India Ecosystem"],
+    url: "https://www.youtube.com/watch?v=VYRVKVjLPUQ"
+  },
+  {
+    id: "media-efy-riscv-interview",
+    title: "RISC-V and Open Source are India's Golden Moment to Become Relevant in Semiconductor Product Design Innovation",
+    source: "Electronics For You (EFY)",
+    format: "Published Article / Expert Interview",
+    year: "2024",
+    featuredExpert: "Sharat Kaul (Global Design, Advanced Packaging, and OSAT Advisor; India Representative, iNEMI)",
+    summary: "An industry interview exploring India’s transition from a services-led semiconductor model to product ownership, capitalizing on open-source EDA tools and RISC-V architectures, and closing critical domestic supply-chain gaps in upstream materials and advanced packaging.",
+    topics: ["RISC-V", "Open Source EDA", "Product Ownership", "Advanced Packaging"],
+    url: "https://www.electronicsforu.com/technology-trends/risc-v-open-source-are-india-golden-moment-to-become-relevant-in-semiconductor-product-design-innovation-sharat-kaul"
+  },
   {
     id: "media-1",
     title: "Building the Indian OSAT Backbone: Infrastructure, Cleanrooms, and Workforce Realities",
