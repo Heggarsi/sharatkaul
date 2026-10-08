@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { X, ArrowUpRight, ChevronDown, Linkedin, ArrowRight } from "lucide-react";
 import { PROFILE } from "../../data/profile";
 import { SERVICES_DATA } from "../../data/services";
-import { RKSLogo } from "../ui/RKSLogo";
 import { ThemeToggle } from "../ui/ThemeToggle";
 
 interface MobileMenuProps {
@@ -55,13 +54,15 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <Link
           to="/"
           onClick={onClose}
-          className="flex items-center focus:outline-none"
+          className="flex flex-col items-start leading-none focus:outline-none"
           aria-label="RKS Consulting Home"
         >
-          <RKSLogo
-            className="h-10 sm:h-12 w-auto object-contain"
-            alt="RKS Consulting"
-          />
+          <span className="font-mono text-xl font-bold tracking-tight text-[#FAFAF8]">
+            RKS
+          </span>
+          <span className="text-[10px] font-mono tracking-[0.24em] text-[#969BA3] uppercase font-semibold mt-0.5">
+            CONSULTING
+          </span>
         </Link>
         <div className="flex items-center gap-2">
           <ThemeToggle showLabel={false} />
@@ -225,25 +226,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] transition-transform" />
             </Link>
           </li>
-
-          {/* 07: Contact */}
-          <li>
-            <Link
-              to="/contact"
-              onClick={onClose}
-              className="w-full text-left py-2 group flex items-center justify-between focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
-            >
-              <div className="flex items-baseline gap-4">
-                <span className="text-xs font-mono text-[#66717D] group-hover:text-[#C9A46C] transition-colors tabular-nums">
-                  07
-                </span>
-                <span className="font-display text-2xl font-semibold tracking-tight text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
-                  Contact
-                </span>
-              </div>
-              <ArrowUpRight className="w-4 h-4 text-[#66717D] group-hover:text-[#C9A46C] transition-transform" />
-            </Link>
-          </li>
         </ul>
 
         {/* Mobile Action Button */}
@@ -251,9 +233,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <Link
             to="/contact"
             onClick={onClose}
-            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#C9A46C] text-[#08090B] font-mono text-xs font-bold tracking-wider uppercase hover:bg-[#E1C58F] transition-all shadow-lg"
+            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#38BDF8] text-[#08090B] font-sans text-xs font-bold tracking-wider uppercase hover:bg-[#7DD3FC] transition-all shadow-lg"
           >
-            <span>Let's Talk</span>
+            <span>Book a conversation</span>
             <ArrowUpRight className="w-4 h-4 text-[#08090B]" />
           </Link>
         </div>

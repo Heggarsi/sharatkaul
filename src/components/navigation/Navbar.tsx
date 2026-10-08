@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
-import { MagneticButton } from "../motion/MagneticButton";
 import { SERVICES_DATA } from "../../data/services";
-import { RKSLogo } from "../ui/RKSLogo";
 import { ThemeToggle } from "../ui/ThemeToggle";
 
 export function Navbar() {
@@ -34,20 +32,20 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Handle scroll hiding/revealing
+  // Handle scroll detection
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      setScrolled(currentScrollY > 30);
+      if (currentScrollY > 40) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
 
-      if (currentScrollY > 300) {
-        if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 10) {
-          setHidden(true);
-          setServicesDropdownOpen(false);
-        } else if (lastScrollY - currentScrollY > 10) {
-          setHidden(false);
-        }
+      // Smart navbar hiding on scroll down, reappearing on scroll up
+      if (currentScrollY > 180 && currentScrollY > lastScrollY && !servicesDropdownOpen) {
+        setHidden(true);
       } else {
         setHidden(false);
       }
@@ -57,8 +55,9 @@ export function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, servicesDropdownOpen]);
 
+  // Keep dropdown open during hover transition
   const handleMouseEnter = () => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
@@ -78,199 +77,182 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 px-6 lg:px-12 transition-all duration-300 ${
           hidden ? "-translate-y-full" : "translate-y-0"
         } ${
           scrolled
-            ? "bg-[#08090B]/90 backdrop-blur-md border-b border-[#242933]/80 py-2.5 shadow-xl shadow-black/30"
-            : "bg-transparent border-b border-transparent py-4"
+            ? "bg-[#08090B]/95 backdrop-blur-md border-b border-[#1E2638] py-3 shadow-xl shadow-black/30"
+            : "bg-[#08090B] border-b border-[#1E2638] py-3.5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-          {/* Zone 1: Standalone Large Brand Logo (Theme-Responsive with Transparent Background) */}
+        <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
+          {/* Left: Pure Typography Wordmark (RKS CONSULTING - No Logo Image) */}
           <Link
             to="/"
-            className="group flex items-center focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded py-0.5"
+            className="flex flex-col items-start leading-none group select-none py-1 focus:outline-none"
             aria-label="RKS Consulting Home"
           >
-            <RKSLogo
-              className="h-10 sm:h-12 md:h-13 w-auto object-contain group-hover:opacity-95 transition-opacity"
-              alt="RKS Consulting"
-            />
+            <span className="font-mono text-xl sm:text-2xl font-bold tracking-tight text-[#FAFAF8] group-hover:text-white transition-colors">
+              RKS
+            </span>
+            <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.26em] text-[#969BA3] uppercase font-semibold mt-1">
+              CONSULTING
+            </span>
           </Link>
 
-          {/* Zone 2: Navigation links with Services dropdown */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-xs font-mono tracking-wider uppercase text-[#969BA3]">
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `hover:text-[#FAFAF8] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:bg-[#C9A46C] after:transition-all whitespace-nowrap ${
-                  isActive
-                    ? "text-[#FAFAF8] font-semibold after:w-full"
-                    : "after:w-0 hover:after:w-full"
-                }`
-              }
-            >
-              About
-            </NavLink>
-
-            {/* Services Dropdown */}
-            <div
-              ref={dropdownRef}
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button
-                type="button"
-                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                aria-expanded={servicesDropdownOpen}
-                aria-haspopup="true"
-                className={`flex items-center gap-1.5 py-1 text-xs font-mono uppercase tracking-wider transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:bg-[#C9A46C] after:transition-all ${
-                  isServicesActive
-                    ? "text-[#FAFAF8] font-semibold after:w-full"
-                    : "text-[#969BA3] hover:text-[#FAFAF8] after:w-0 hover:after:w-full"
-                }`}
+          {/* Right: Integrated Single-Row Navigation Bar matching exact PDF pattern */}
+          <div className="flex items-center gap-6 xl:gap-8">
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-xs font-sans tracking-wide text-[#969BA3]">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  `hover:text-[#FAFAF8] transition-colors relative py-1 ${
+                    isActive ? "text-[#FAFAF8] font-semibold" : ""
+                  }`
+                }
               >
-                <span>Services</span>
-                <ChevronDown
-                  className={`w-3.5 h-3.5 text-[#C9A46C] transition-transform duration-200 ${
-                    servicesDropdownOpen ? "rotate-180" : ""
+                About
+              </NavLink>
+
+              {/* Services Dropdown */}
+              <div
+                ref={dropdownRef}
+                className="relative"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button
+                  type="button"
+                  onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                  aria-expanded={servicesDropdownOpen}
+                  aria-haspopup="true"
+                  className={`flex items-center gap-1 py-1 text-xs font-sans transition-colors cursor-pointer ${
+                    isServicesActive
+                      ? "text-[#FAFAF8] font-semibold"
+                      : "text-[#969BA3] hover:text-[#FAFAF8]"
                   }`}
-                />
-              </button>
+                >
+                  <span>Services</span>
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 text-[#969BA3] transition-transform duration-200 ${
+                      servicesDropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
 
-              {/* Minimal, Premium Dropdown Menu */}
-              {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-3 w-72 rounded-2xl bg-[#111317] border border-[#242933] shadow-2xl shadow-black/80 py-2.5 z-50 animate-page-fade-in backdrop-blur-md">
-                  {/* Clean Non-duplicate Category Header */}
-                  <div className="px-4 py-2 border-b border-[#242933]/60 text-[10px] font-mono uppercase tracking-widest text-[#C9A46C]">
-                    Advisory Practices
-                  </div>
+                {/* Services Dropdown Menu */}
+                {servicesDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-3 w-72 rounded-2xl bg-[#111317] border border-[#242933] shadow-2xl shadow-black/80 py-2.5 z-50 animate-page-fade-in backdrop-blur-md">
+                    <div className="px-4 py-2 border-b border-[#242933]/60 text-[10px] font-mono uppercase tracking-widest text-[#38BDF8]">
+                      Advisory Practices
+                    </div>
 
-                  <div className="py-1">
-                    {SERVICES_DATA.map((service) => (
+                    <div className="py-1">
+                      {SERVICES_DATA.map((service) => (
+                        <Link
+                          key={service.id}
+                          to={service.path}
+                          onClick={() => setServicesDropdownOpen(false)}
+                          className={`flex items-center justify-between px-4 py-2.5 hover:bg-[#1B1E24] text-xs font-sans transition-colors group ${
+                            location.pathname === service.path
+                              ? "text-[#38BDF8] bg-[#1B1E24]/60 font-medium"
+                              : "text-[#FAFAF8]/90 hover:text-[#FAFAF8]"
+                          }`}
+                        >
+                          <span className="group-hover:translate-x-1 transition-transform truncate pr-2">
+                            {service.title}
+                          </span>
+                          <span className="text-[10px] font-mono text-[#66717D] group-hover:text-[#38BDF8] shrink-0">
+                            {service.num}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+
+                    <div className="px-4 pt-2 pb-1 border-t border-[#242933]/60">
                       <Link
-                        key={service.id}
-                        to={service.path}
+                        to="/services"
                         onClick={() => setServicesDropdownOpen(false)}
-                        className={`flex items-center justify-between px-4 py-2.5 hover:bg-[#1B1E24] text-xs font-sans transition-colors group ${
-                          location.pathname === service.path
-                            ? "text-[#C9A46C] bg-[#1B1E24]/60 font-medium"
-                            : "text-[#FAFAF8]/90 hover:text-[#FAFAF8]"
-                        }`}
+                        className="text-[11px] font-mono text-[#38BDF8] hover:text-[#7DD3FC] transition-colors flex items-center justify-between py-1"
                       >
-                        <span className="group-hover:translate-x-1 transition-transform truncate pr-2">
-                          {service.title}
-                        </span>
-                        <span className="text-[10px] font-mono text-[#66717D] group-hover:text-[#C9A46C] shrink-0">
-                          {service.num}
-                        </span>
+                        <span>View All Services Overview →</span>
                       </Link>
-                    ))}
+                    </div>
                   </div>
+                )}
+              </div>
 
-                  {/* Single Clean Overview Link */}
-                  <div className="px-4 pt-2 pb-1 border-t border-[#242933]/60">
-                    <Link
-                      to="/services"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="text-[11px] font-mono text-[#C9A46C] hover:text-[#E1C58F] transition-colors flex items-center justify-between py-1"
-                    >
-                      <span>View All Services Overview →</span>
-                    </Link>
-                  </div>
-                </div>
-              )}
+              {/* Customers Link */}
+              <NavLink
+                to="/customers"
+                className={({ isActive }) =>
+                  `hover:text-[#FAFAF8] transition-colors relative py-1 ${
+                    isActive ? "text-[#FAFAF8] font-semibold" : ""
+                  }`
+                }
+              >
+                Customers
+              </NavLink>
+
+              {/* Experience Link */}
+              <NavLink
+                to="/experience"
+                className={({ isActive }) =>
+                  `hover:text-[#FAFAF8] transition-colors relative py-1 ${
+                    isActive ? "text-[#FAFAF8] font-semibold" : ""
+                  }`
+                }
+              >
+                Experience
+              </NavLink>
+
+              {/* Insights Link */}
+              <NavLink
+                to="/insights"
+                className={({ isActive }) =>
+                  `hover:text-[#FAFAF8] transition-colors relative py-1 ${
+                    isActive ? "text-[#FAFAF8] font-semibold" : ""
+                  }`
+                }
+              >
+                Insights
+              </NavLink>
+
+              {/* Speaking Link */}
+              <NavLink
+                to="/speaking"
+                className={({ isActive }) =>
+                  `hover:text-[#FAFAF8] transition-colors relative py-1 ${
+                    isActive ? "text-[#FAFAF8] font-semibold" : ""
+                  }`
+                }
+              >
+                Speaking
+              </NavLink>
+
+              {/* Book a conversation action (replaces Contact) */}
+              <Link
+                to="/contact"
+                className="text-xs font-sans font-semibold text-[#38BDF8] hover:text-[#7DD3FC] py-1 border-b border-[#38BDF8] transition-colors whitespace-nowrap"
+              >
+                Book a conversation
+              </Link>
+            </nav>
+
+            {/* Dark / Light Theme Toggle on the far right */}
+            <div className="flex items-center gap-2">
+              <ThemeToggle showLabel={false} />
+
+              {/* Mobile menu trigger button */}
+              <button
+                onClick={() => setMobileMenuOpen(true)}
+                className="lg:hidden p-2 text-[#969BA3] hover:text-[#FAFAF8] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#38BDF8] rounded"
+                aria-label="Open mobile navigation menu"
+                aria-expanded={mobileMenuOpen}
+              >
+                <Menu className="w-5 h-5" />
+              </button>
             </div>
-
-            <NavLink
-              to="/customers"
-              className={({ isActive }) =>
-                `hover:text-[#FAFAF8] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:bg-[#C9A46C] after:transition-all whitespace-nowrap ${
-                  isActive
-                    ? "text-[#FAFAF8] font-semibold after:w-full"
-                    : "after:w-0 hover:after:w-full"
-                }`
-              }
-            >
-              Customers
-            </NavLink>
-
-            <NavLink
-              to="/experience"
-              className={({ isActive }) =>
-                `hover:text-[#FAFAF8] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:bg-[#C9A46C] after:transition-all whitespace-nowrap ${
-                  isActive
-                    ? "text-[#FAFAF8] font-semibold after:w-full"
-                    : "after:w-0 hover:after:w-full"
-                }`
-              }
-            >
-              Experience
-            </NavLink>
-
-            <NavLink
-              to="/insights"
-              className={({ isActive }) =>
-                `hover:text-[#FAFAF8] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:bg-[#C9A46C] after:transition-all whitespace-nowrap ${
-                  isActive
-                    ? "text-[#FAFAF8] font-semibold after:w-full"
-                    : "after:w-0 hover:after:w-full"
-                }`
-              }
-            >
-              Insights
-            </NavLink>
-
-            <NavLink
-              to="/speaking"
-              className={({ isActive }) =>
-                `hover:text-[#FAFAF8] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:bg-[#C9A46C] after:transition-all whitespace-nowrap ${
-                  isActive
-                    ? "text-[#FAFAF8] font-semibold after:w-full"
-                    : "after:w-0 hover:after:w-full"
-                }`
-              }
-            >
-              Speaking
-            </NavLink>
-
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `hover:text-[#FAFAF8] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:bg-[#C9A46C] after:transition-all whitespace-nowrap ${
-                  isActive
-                    ? "text-[#FAFAF8] font-semibold after:w-full"
-                    : "after:w-0 hover:after:w-full"
-                }`
-              }
-            >
-              Contact
-            </NavLink>
-          </nav>
-
-          {/* Zone 3: Executive Consultation CTA and Theme Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Dark / Light Mode Toggle Button */}
-            <ThemeToggle showLabel={false} />
-
-            <Link to="/contact">
-              <MagneticButton className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-medium tracking-wide text-[#FAFAF8] bg-[#1B1E24] hover:bg-[#242933] border border-[#242933] hover:border-[#C9A46C]/60 rounded-lg transition-all whitespace-nowrap shadow-sm group">
-                <span>Let's Talk</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#C9A46C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </MagneticButton>
-            </Link>
-
-            {/* Mobile menu trigger */}
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2 text-[#969BA3] hover:text-[#FAFAF8] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A46C] rounded"
-              aria-label="Open mobile navigation menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              <Menu className="w-5 h-5" />
-            </button>
           </div>
         </div>
       </header>

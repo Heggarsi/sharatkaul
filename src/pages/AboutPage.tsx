@@ -3,13 +3,15 @@ import rksProfilePic from "../assets/images/Rksprofilepic.png";
 
 export function AboutPage() {
   const careerPath = [
-    { step: "01", company: "Texas Instruments", role: "Chip design" },
-    { step: "02", company: "Synopsys", role: "Synthesis consulting" },
-    { step: "03", company: "QuickLogic", role: "Architecture" },
-    { step: "04", company: "Infinite", role: "Technology practices" },
-    { step: "05", company: "Solar-Apps", role: "Clean energy" },
-    { step: "06", company: "Krypton Solutions", role: "Electronics manufacturing" },
-    { step: "07", company: "RKS Consulting", role: "Advisory — today" },
+    { step: "01", company: "Texas Instruments", role: "Product engineering & DSP" },
+    { step: "02", company: "QuickLogic", role: "FPGA architecture & marketing" },
+    { step: "03", company: "Infinite", role: "Enterprise technology practices" },
+    { step: "04", company: "Synopsys", role: "EDA & RTL-to-GDSII accounts" },
+    { step: "05", company: "Solar-Apps", role: "Clean energy founder" },
+    { step: "06", company: "Global Semiconductor EMS", role: "Advanced packaging & EMS" },
+    { step: "07", company: "MosChip", role: "Turnkey ASIC & embedded systems" },
+    { step: "08", company: "IESA", role: "VP Strategy & industry execution" },
+    { step: "09", company: "RKC / RKS Advisory", role: "Semiconductor consulting — today" },
   ];
 
   return (

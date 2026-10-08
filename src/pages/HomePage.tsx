@@ -2,20 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, BookOpen, Calendar, MapPin, Mic } from "lucide-react";
 import { HeroSection } from "../components/sections/HeroSection";
-import { CredibilitySection } from "../components/sections/CredibilitySection";
+import { WhereIWorkSection } from "../components/sections/WhereIWorkSection";
 import { IntroductionSection } from "../components/sections/IntroductionSection";
 import { ValueChainSection } from "../components/sections/ValueChainSection";
 import { WhySharatSection } from "../components/sections/WhySharatSection";
 import { FinalCTASection } from "../components/sections/FinalCTASection";
-import { SERVICES_DATA } from "../data/services";
 import { CUSTOMER_CATEGORIES } from "../data/customers";
 import { INSIGHTS_DATA } from "../data/insights";
 import { SPEAKING_ENGAGEMENTS } from "../data/speaking";
 
 export function HomePage() {
-  // 4 Primary Services for Homepage preview (Section 22)
-  const previewServices = SERVICES_DATA.slice(0, 4);
-
   // 2 Primary Insights for Homepage preview
   const previewInsights = INSIGHTS_DATA.slice(0, 2);
 
@@ -24,86 +20,16 @@ export function HomePage() {
 
   return (
     <>
-      {/* 01: HERO */}
+      {/* 01: HERO (FROM SILICON TO SCALE) */}
       <HeroSection />
 
-      {/* 02: CREDIBILITY */}
-      <CredibilitySection />
+      {/* 02: WHERE I WORK (ADVANCED PACKAGING, MANUFACTURING & TEST, ECOSYSTEMS) */}
+      <WhereIWorkSection />
 
       {/* 03: INTRODUCTION (WHO IS SHARAT KAUL?) */}
       <IntroductionSection />
 
-      {/* 04: SERVICES (HOW I CAN HELP) */}
-      <section className="py-24 px-6 lg:px-12 bg-[#08090B]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-              <div className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest mb-3">
-                STRATEGIC SERVICES
-              </div>
-              <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#FAFAF8] leading-tight">
-                HOW I CAN HELP
-              </h2>
-            </div>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 text-xs font-mono text-[#C9A46C] hover:text-[#E1C58F] transition-colors"
-            >
-              <span>View All Services</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {previewServices.map((service) => (
-              <Link
-                key={service.id}
-                to={service.path}
-                className="p-8 sm:p-10 rounded-2xl bg-[#111317] border border-[#242933] hover:border-[#C9A46C]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group shadow-lg shadow-black/20"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono text-[#C9A46C] font-semibold">
-                      {service.num}
-                    </span>
-                    <span className="text-[11px] font-mono text-[#66717D] uppercase tracking-wider">
-                      {service.tagline}
-                    </span>
-                  </div>
-
-                  <h3 className="font-display text-2xl font-bold text-[#FAFAF8] mb-3 group-hover:text-[#C9A46C] transition-colors">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-sm text-[#969BA3] leading-relaxed mb-6">
-                    {service.shortDescription}
-                  </p>
-                </div>
-
-                <div className="pt-6 border-t border-[#242933] flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors">
-                    <span>Explore Service Details</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#C9A46C] group-hover:translate-x-1 transition-transform" />
-                  </span>
-                  <span className="text-[10px] font-mono text-[#66717D]">ADVISORY PRACTICE</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#1B1E24] hover:bg-[#242933] border border-[#242933] hover:border-[#C9A46C]/40 text-xs font-mono text-[#FAFAF8] transition-all"
-            >
-              <span>Explore All 6 Advisory Offerings</span>
-              <ArrowRight className="w-4 h-4 text-[#C9A46C]" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 05: EXPERIENCE (EXPERIENCE THAT SPANS THE VALUE CHAIN) */}
+      {/* 04: EXPERIENCE (EXPERIENCE THAT SPANS THE VALUE CHAIN) */}
       <ValueChainSection />
 
       {/* 06: CLIENT VERTICALS (WORKING ACROSS THE ECOSYSTEM) */}
