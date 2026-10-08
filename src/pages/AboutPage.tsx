@@ -1,269 +1,140 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, Building2, CheckCircle2, GraduationCap, Linkedin, ShieldCheck } from "lucide-react";
-import { PROFILE } from "../data/profile";
-import { EDUCATION_DATA } from "../data/education";
-import { LEADERSHIP_ROLES } from "../data/organizations";
-import { RECOGNITIONS } from "../data/awards";
 import rksProfilePic from "../assets/images/Rksprofilepic.png";
 
 export function AboutPage() {
+  const careerPath = [
+    { step: "01", company: "Texas Instruments", role: "Chip design" },
+    { step: "02", company: "Synopsys", role: "Synthesis consulting" },
+    { step: "03", company: "QuickLogic", role: "Architecture" },
+    { step: "04", company: "Infinite", role: "Technology practices" },
+    { step: "05", company: "Solar-Apps", role: "Clean energy" },
+    { step: "06", company: "Krypton Solutions", role: "Electronics manufacturing" },
+    { step: "07", company: "RKS Consulting", role: "Advisory — today" },
+  ];
+
   return (
-    <div className="pt-28 pb-24">
-      {/* Editorial Page Header with Photo on Right */}
-      <section className="px-6 lg:px-12 py-16 lg:py-20 bg-[#08090B] border-b border-[#242933]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest">
-                  EXECUTIVE PROFILE
-                </span>
-                <div className="h-[1px] w-12 bg-[#242933]" />
-              </div>
-
-              <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAFAF8] leading-[1.05] mb-6">
-                ABOUT <br />
-                <span className="font-serif italic font-normal text-[#C9A46C]">RKS CONSULTING.</span>
-              </h1>
-
-              <p className="text-lg sm:text-xl text-[#969BA3] max-w-2xl leading-relaxed mb-8">
-                Executive advisory practice founded and led by Sharat Kaul, working at the intersection of semiconductors, strategy and ecosystem development.
-              </p>
-
-              {/* Quick credential metrics */}
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#242933]">
-                <div>
-                  <div className="font-display text-2xl sm:text-3xl font-bold text-[#FAFAF8]">30+</div>
-                  <div className="text-[11px] font-mono text-[#969BA3] uppercase tracking-wider mt-1">Years Silicon Experience</div>
-                </div>
-                <div>
-                  <div className="font-display text-2xl sm:text-3xl font-bold text-[#C9A46C]">US &amp; IN</div>
-                  <div className="text-[11px] font-mono text-[#969BA3] uppercase tracking-wider mt-1">Ecosystem Leadership</div>
-                </div>
-                <div>
-                  <div className="font-display text-2xl sm:text-3xl font-bold text-[#FAFAF8]">OSAT</div>
-                  <div className="text-[11px] font-mono text-[#969BA3] uppercase tracking-wider mt-1">Packaging &amp; Strategy</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Photo */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md group">
-                {/* Ambient glow accent behind photo */}
-                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-[#0080FF]/20 via-[#C9A46C]/20 to-transparent blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
-
-                {/* Main Card */}
-                <div className="relative rounded-2xl overflow-hidden border border-[#242933] bg-[#111317] shadow-2xl flex flex-col">
-                  <div className="relative overflow-hidden bg-[#08090B]">
-                    <img
-                      src={rksProfilePic}
-                      alt="Sharat Kaul - Founder & Principal Consultant, RKS Consulting"
-                      className="w-full h-auto max-h-[440px] object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                    />
-                  </div>
-
-                  {/* High-Contrast Dedicated Profile Info Bar for Both Themes */}
-                  <div className="p-4 sm:p-5 bg-[#16191F] border-t border-[#242933] flex items-center justify-between">
-                    <div>
-                      <div className="font-mono text-base sm:text-lg font-bold text-[#FAFAF8]">
-                        Sharat Kaul
-                      </div>
-                      <div className="text-xs font-mono text-[#C9A46C] uppercase tracking-wider mt-0.5 font-semibold">
-                        Founder &amp; Principal Consultant
-                      </div>
-                    </div>
-                    <span className="px-3 py-1 rounded-md bg-[#242933] border border-[#242933] text-[11px] font-mono font-bold text-[#FAFAF8]">
-                      RKS
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="pt-28 lg:pt-36 pb-24 px-6 lg:px-12 xl:px-16 bg-[#08090B] min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        {/* Top Editorial Quote */}
+        <div className="mb-14 lg:mb-16">
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-light tracking-tight text-[#FAFAF8] leading-[1.2] max-w-5xl">
+            &ldquo;Technology is only half the story. The other half is{" "}
+            <span className="text-[#38BDF8] font-normal">
+              people, markets and partnerships.
+            </span>
+            &rdquo;
+          </h1>
         </div>
-      </section>
 
-      {/* Narrative Section: The Journey, Technology, Business, Ecosystem, Leadership */}
-      <section className="py-20 px-6 lg:px-12 bg-[#08090B]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Left Bio Highlights */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="p-8 rounded-2xl bg-[#111317] border border-[#242933]">
-                <h3 className="font-display text-2xl font-bold text-[#FAFAF8] mb-4">
-                  Executive Overview
-                </h3>
-                <p className="text-sm text-[#969BA3] leading-relaxed mb-6">
-                  With over three decades of engineering and leadership experience spanning Silicon Valley, Texas, and India, Sharat Kaul operates as a senior strategic advisor to foundry consortiums, government bodies, and technology ventures.
-                </p>
+        {/* Subtle Horizontal Divider Line */}
+        <div className="h-[1px] w-full bg-[#1E2638] mb-12 lg:mb-16" />
 
-                <div className="space-y-3 pt-4 border-t border-[#242933] text-xs font-mono">
-                  <div className="flex justify-between py-1 border-b border-[#242933]/50">
-                    <span className="text-[#66717D]">Role</span>
-                    <span className="text-[#FAFAF8]">Strategic Technology Advisor</span>
-                  </div>
-                  <div className="flex justify-between py-1 border-b border-[#242933]/50">
-                    <span className="text-[#66717D]">Focus</span>
-                    <span className="text-[#C9A46C]">Semiconductor Strategy &amp; OSAT</span>
-                  </div>
-                  <div className="flex justify-between py-1 border-b border-[#242933]/50">
-                    <span className="text-[#66717D]">Global Reach</span>
-                    <span className="text-[#FAFAF8]">US &amp; India Corridors</span>
-                  </div>
-                  <div className="flex justify-between py-1">
-                    <span className="text-[#66717D]">Stewardship</span>
-                    <span className="text-[#FAFAF8]">Co-Chair iMAPS India</span>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <a
-                    href={PROFILE.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#1B1E24] hover:bg-[#242933] border border-[#242933] text-xs font-mono text-[#FAFAF8] transition-colors"
-                  >
-                    <Linkedin className="w-4 h-4 text-[#C9A46C]" />
-                    <span>View Verified LinkedIn Profile ↗</span>
-                  </a>
-                </div>
-              </div>
+        {/* Three Columns Main Content Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-start">
+          {/* Left Column: Circular Portrait & Founder Caption */}
+          <div className="lg:col-span-3 flex flex-col items-start">
+            <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border border-[#242933] shadow-xl mb-4 bg-[#111317] shrink-0">
+              <img
+                src={rksProfilePic}
+                alt="Sharat Kaul, founder, RKS Consulting"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
-
-            {/* Right Pillars Storytelling */}
-            <div className="lg:col-span-7 space-y-10">
-              <div className="border-b border-[#242933] pb-8">
-                <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-wider mb-2 block">
-                  01 // THE JOURNEY
-                </span>
-                <h3 className="font-display text-2xl font-bold text-[#FAFAF8] mb-3">
-                  Evolution of a 30-Year Career
-                </h3>
-                <p className="text-sm sm:text-base text-[#969BA3] leading-relaxed">
-                  Sharat’s career began in foundational silicon engineering and yield ramping at Texas Instruments, progressing through programmable logic at QuickLogic, high-tech business development at Infinite, over a decade driving strategic EDA accounts at Synopsys, clean-tech entrepreneurship as Founder &amp; CEO of Solar-Apps Energy, turnkey ASIC business development at MosChip, and leadership at IESA and Global Semiconductor EMS. Today, he delivers strategic advisory across advanced packaging, RISC-V, and sovereign manufacturing scale-up.
-                </p>
-              </div>
-
-              <div className="border-b border-[#242933] pb-8">
-                <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-wider mb-2 block">
-                  02 // TECHNOLOGY
-                </span>
-                <h3 className="font-display text-2xl font-bold text-[#FAFAF8] mb-3">
-                  Semiconductor Physics to Modern OSAT
-                </h3>
-                <p className="text-sm sm:text-base text-[#969BA3] leading-relaxed">
-                  Rooted in deep-submicron physics and digital signal processing, Sharat’s technical focus centers on the post-Moore transition: disaggregated chiplet architectures, 2.5D/3D interposers, through-silicon vias, high-density substrates, and the cleanroom operational discipline required for high-yield Outsourced Semiconductor Assembly and Test (OSAT).
-                </p>
-              </div>
-
-              <div className="border-b border-[#242933] pb-8">
-                <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-wider mb-2 block">
-                  03 // BUSINESS
-                </span>
-                <h3 className="font-display text-2xl font-bold text-[#FAFAF8] mb-3">
-                  Strategy, Commercialization &amp; Venture Execution
-                </h3>
-                <p className="text-sm sm:text-base text-[#969BA3] leading-relaxed">
-                  Holding an MBA from SMU Cox School of Business alongside an MS in Electrical Engineering from UT Dallas, Sharat couples technical rigor with commercial pragmatism. He has closed multi-million-dollar enterprise high-tech service contracts, launched hardware ventures, and guided executives on risk-adjusted capital allocation.
-                </p>
-              </div>
-
-              <div>
-                <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-wider mb-2 block">
-                  04 // ECOSYSTEM &amp; LEADERSHIP
-                </span>
-                <h3 className="font-display text-2xl font-bold text-[#FAFAF8] mb-3">
-                  Industry Relationships &amp; National Stewardship
-                </h3>
-                <p className="text-sm sm:text-base text-[#969BA3] leading-relaxed">
-                  Recognized as an ecosystem builder, Sharat co-leads the International Microelectronics Assembly and Packaging Society (iMAPS) India chapter, serves on the Board of Semiconductor Technologies at Gujarat Technological University (GTU), contributes strategic volunteer perspective to the India Semiconductor Mission (ISM), and is an elevated Senior Member of IEEE.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Large Personal Brand Editorial Statement */}
-      <section className="py-24 px-6 lg:px-12 bg-[#111317] border-y border-[#242933] relative overflow-hidden">
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B1E24] border border-[#242933] text-[10px] font-mono text-[#C9A46C] uppercase tracking-wider mb-6">
-            GUIDING ETHOS
+            <p className="text-xs sm:text-sm text-[#969BA3] font-sans leading-relaxed max-w-[220px]">
+              Sharat Kaul, founder, RKS Consulting.
+            </p>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#FAFAF8] leading-tight mb-8">
-            "Technology is only <span className="italic text-[#C9A46C]">half</span> the story."
-          </h2>
-
-          <p className="text-lg sm:text-xl text-[#969BA3] max-w-2xl mx-auto leading-relaxed">
-            The other half is understanding people, markets, partnerships, and the ecosystems required to turn technology into impact.
-          </p>
-        </div>
-      </section>
-
-      {/* Verified Education & Credentials */}
-      <section className="py-20 px-6 lg:px-12 bg-[#08090B]">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mb-12">
-            <div className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest mb-3">
-              ACADEMIC &amp; PROFESSIONAL CREDENTIALS
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#FAFAF8]">
-              Academic Foundations
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {EDUCATION_DATA.map((edu) => (
-              <div
-                key={edu.id}
-                className="p-8 rounded-2xl bg-[#111317] border border-[#242933] flex flex-col justify-between"
-              >
-                <div>
-                  <div className="p-3 rounded-xl bg-[#1B1E24] text-[#C9A46C] w-fit mb-6">
-                    <GraduationCap className="w-5 h-5" />
-                  </div>
-                  <div className="text-xs font-mono text-[#C9A46C] uppercase mb-1">
-                    {edu.discipline}
-                  </div>
-                  <h3 className="font-display text-xl font-bold text-[#FAFAF8] mb-2">
-                    {edu.degree}
-                  </h3>
-                  <div className="text-sm font-semibold text-[#969BA3] mb-4">
-                    {edu.institution}
-                  </div>
-                  <p className="text-xs text-[#66717D] leading-relaxed">
-                    {edu.context}
-                  </p>
-                </div>
-                <div className="pt-6 mt-6 border-t border-[#242933] text-[9px] font-mono text-[#66717D]">
-                  VERIFIED CREDENTIAL
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="p-8 sm:p-10 rounded-2xl bg-[#111317] border border-[#242933] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          {/* Center Column: ABOUT statement, Metadata Grid & Link */}
+          <div className="lg:col-span-5 xl:col-span-6 flex flex-col justify-between lg:pr-4">
             <div>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-[#FAFAF8] mb-2">
-                Explore Detailed Career Milestones
-              </h3>
-              <p className="text-sm text-[#969BA3]">
-                Review the complete executive chronological track record from Texas Instruments to strategic advisory.
+              <span className="text-xs font-mono font-semibold tracking-wider text-[#38BDF8] uppercase block mb-3">
+                ABOUT
+              </span>
+
+              <p className="font-display text-xl sm:text-2xl lg:text-[25px] text-[#FAFAF8] leading-relaxed font-normal mb-10">
+                30+ years on every side of semiconductors — chip design, EDA, manufacturing and business. Today I help leaders turn design strength into manufacturing capability.
               </p>
+
+              {/* Credentials Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-6">
+                <div>
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#66717D] mb-1.5">
+                    INDUSTRY
+                  </div>
+                  <div className="text-sm font-semibold text-[#FAFAF8]">
+                    Co-Chair, iMAPS India
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#66717D] mb-1.5">
+                    ACADEMIA
+                  </div>
+                  <div className="text-sm font-semibold text-[#FAFAF8]">
+                    GTU Semiconductor Board
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#66717D] mb-1.5">
+                    POLICY
+                  </div>
+                  <div className="text-sm font-semibold text-[#FAFAF8]">
+                    India Semiconductor Mission
+                  </div>
+                </div>
+              </div>
+
+              {/* Education row */}
+              <div className="mb-8">
+                <div className="text-[11px] font-mono uppercase tracking-wider text-[#66717D] mb-1.5">
+                  EDUCATION
+                </div>
+                <div className="text-sm font-semibold text-[#FAFAF8]">
+                  MS EE, UT Dallas · MBA, SMU Cox
+                </div>
+              </div>
             </div>
-            <Link
-              to="/experience"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#C9A46C] text-[#08090B] font-mono text-xs font-bold tracking-wider uppercase hover:bg-[#E1C58F] transition-all whitespace-nowrap"
-            >
-              <span>View Experience Page</span>
-              <ArrowRight className="w-4 h-4 text-[#08090B]" />
-            </Link>
+
+            {/* Read my full story link */}
+            <div className="pt-2">
+              <Link
+                to="/experience"
+                className="inline-flex items-center gap-1.5 text-sm font-sans font-medium text-[#38BDF8] hover:text-[#7DD3FC] transition-colors group"
+              >
+                <span>Read my full story</span>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: CAREER PATH List */}
+          <div className="lg:col-span-4 xl:col-span-3 border-t lg:border-t-0 lg:border-l border-[#1E2638] pt-8 lg:pt-0 lg:pl-8">
+            <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#969BA3] mb-4 pb-2 border-b border-[#1E2638]">
+              CAREER PATH
+            </div>
+
+            <div className="divide-y divide-[#1E2638]">
+              {careerPath.map((item) => (
+                <div key={item.step} className="py-3 flex items-start gap-3.5">
+                  <span className="text-xs font-mono text-[#66717D] pt-0.5 w-5 shrink-0">
+                    {item.step}
+                  </span>
+                  <div>
+                    <div className="text-sm font-semibold text-[#FAFAF8] leading-tight">
+                      {item.company}
+                    </div>
+                    <div className="text-xs text-[#969BA3] mt-0.5">
+                      {item.role}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

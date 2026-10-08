@@ -412,6 +412,26 @@ html[data-theme="light"] .text-\[\#FAFAF8\] {
   color: #0F172A !important;
 }
 
+html[data-theme="light"] .text-\[\#38BDF8\],
+html.light .text-\[\#38BDF8\] {
+  color: #0284C7 !important;
+}
+
+html[data-theme="light"] .border-\[\#1E2638\],
+html.light .border-\[\#1E2638\] {
+  border-color: #E2E8F0 !important;
+}
+
+html[data-theme="light"] .bg-\[\#1E2638\],
+html.light .bg-\[\#1E2638\] {
+  background-color: #E2E8F0 !important;
+}
+
+html[data-theme="light"] .divide-\[\#1E2638\] > :not([hidden]) ~ :not([hidden]),
+html.light .divide-\[\#1E2638\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #E2E8F0 !important;
+}
+
 html[data-theme="light"] .text-\[\#FAFAF8\]\/90 {
   color: rgba(15, 23, 42, 0.9) !important;
 }
