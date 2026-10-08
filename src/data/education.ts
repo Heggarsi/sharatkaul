@@ -18,7 +18,7 @@ export const EDUCATION_DATA: EducationItem[] = [
   },
   {
     id: "utd",
-    degree: "Master of Science (MS)",
+    degree: "Bachelor of Science Electrical Engineering (BSEE)",
     institution: "University of Texas at Dallas",
     location: "Richardson, Texas, USA",
     discipline: "Electrical & Microelectronics Engineering",

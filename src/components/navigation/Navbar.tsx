@@ -4,8 +4,11 @@ import { ChevronDown, Menu } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
 import { SERVICES_DATA } from "../../data/services";
 import { ThemeToggle } from "../ui/ThemeToggle";
+import { useTheme } from "../../context/ThemeContext";
 
 export function Navbar() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -80,9 +83,13 @@ export function Navbar() {
         className={`fixed top-0 left-0 right-0 z-40 px-6 lg:px-12 transition-all duration-300 ${
           hidden ? "-translate-y-full" : "translate-y-0"
         } ${
-          scrolled
-            ? "bg-[#08090B]/95 backdrop-blur-md border-b border-[#1E2638] py-3 shadow-xl shadow-black/30"
-            : "bg-[#08090B] border-b border-[#1E2638] py-3.5"
+          isDark
+            ? scrolled
+              ? "bg-[#131B2E]/95 backdrop-blur-md border-b border-[#1E2638] py-3 shadow-xl shadow-black/30"
+              : "bg-[#131B2E] border-b border-[#1E2638] py-3.5"
+            : scrolled
+              ? "bg-white/95 backdrop-blur-md border-b border-slate-200 py-3 shadow-md shadow-slate-900/5"
+              : "bg-[#F8F9FA] border-b border-slate-200 py-3.5"
         }`}
       >
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between">

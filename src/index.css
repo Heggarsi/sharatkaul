@@ -147,6 +147,10 @@ html[data-theme="dark"] .bg-\[\#07090D\] {
   background-color: #131B2E !important;
 }
 
+html:not([data-theme="light"]) .bg-\[\#08090B\]\/95,
+html[data-theme="dark"] .bg-\[\#08090B\]\/95,
+html:not([data-theme="light"]) .bg-\[\#131B2E\]\/95,
+html[data-theme="dark"] .bg-\[\#131B2E\]\/95,
 html:not([data-theme="light"]) .bg-\[\#08090B\]\/90,
 html[data-theme="dark"] .bg-\[\#08090B\]\/90 {
   background-color: rgba(19, 27, 46, 0.94) !important;
@@ -314,9 +318,25 @@ html[data-theme="light"] .bg-black {
   background-color: #F8F9FA !important;
 }
 
+html[data-theme="light"] .bg-\[\#08090B\]\/95,
+html.light .bg-\[\#08090B\]\/95,
+html[data-theme="light"] .bg-\[\#131B2E\]\/95,
+html.light .bg-\[\#131B2E\]\/95,
 html[data-theme="light"] .bg-\[\#08090B\]\/90,
 html[data-theme="light"] .bg-black\/90 {
   background-color: rgba(255, 255, 255, 0.94) !important;
+}
+
+/* Header Navbar in light mode - never black when scrolling or static */
+html[data-theme="light"] header,
+html.light header {
+  background-color: #F8F9FA !important;
+}
+
+html[data-theme="light"] header[class*="backdrop-blur"],
+html.light header[class*="backdrop-blur"] {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: #E2E8F0 !important;
 }
 
 html[data-theme="light"] .bg-\[\#08090B\]\/80,
