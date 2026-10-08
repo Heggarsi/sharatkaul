@@ -73,7 +73,7 @@ export function IntroductionSection() {
                 <CheckCircle2 className="w-4 h-4 text-[#C9A46C] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-[#FAFAF8] block">Bilingual Tech &amp; Business Rigor</strong>
-                  Holds an MBA from SMU Cox and an MS in Electrical Engineering from UT Dallas.
+                  Holds an MBA from SMU Cox and a BS in Electrical Engineering (BSEE) from UT Dallas.
                 </div>
               </div>
             </div>

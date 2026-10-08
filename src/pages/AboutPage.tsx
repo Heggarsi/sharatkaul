@@ -94,7 +94,7 @@ export function AboutPage() {
                   EDUCATION
                 </div>
                 <div className="text-sm font-semibold text-[#FAFAF8]">
-                  MS EE, UT Dallas · MBA, SMU Cox
+                  BS EE, UT Dallas · MBA, SMU Cox
                 </div>
               </div>
             </div>

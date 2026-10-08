@@ -356,7 +356,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "General Partners and Investment Committees evaluating semiconductor venture investments.",
       "Founders of deep-tech ventures preparing for growth-stage institutional funding rounds."
     ],
-    howExperienceAddsValue: "Holding an MBA from SMU Cox alongside an MS in Electrical Engineering, Sharat communicates fluently with institutional board members and engineering leads alike, delivering unbiased counsel that protects shareholder value.",
+    howExperienceAddsValue: "Holding an MBA from SMU Cox alongside a BS in Electrical Engineering (BSEE), Sharat communicates fluently with institutional board members and engineering leads alike, delivering unbiased counsel that protects shareholder value.",
     keyDeliverables: [
       "Confidential C-suite technology sparring",
       "M&A and investment technical due diligence",
