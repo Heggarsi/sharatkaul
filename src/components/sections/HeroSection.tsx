@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import fig1WaferProbe from "../../assets/images/fig1_wafer_probe.jpg";
+import heroWaferImage from "../../assets/images/regenerated_image_1791461675818.png";
 
 export function HeroSection() {
   return (
@@ -61,7 +61,7 @@ export function HeroSection() {
         <div className="relative flex-1 min-h-[160px] sm:min-h-[200px] lg:min-h-0 flex items-stretch pb-1">
           <div className="w-full h-44 sm:h-56 lg:h-full rounded-2xl overflow-hidden border border-[#1E2638] bg-[#111317] shadow-2xl">
             <img
-              src={fig1WaferProbe}
+              src={heroWaferImage}
               alt="Wafer probe: where design meets manufacturing"
               className="w-full h-full object-cover object-center"
               loading="eager"

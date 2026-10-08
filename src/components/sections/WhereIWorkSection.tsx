@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import fig2AdvancedPackaging from "../../assets/images/fig2_advanced_packaging.jpg";
-import fig3ManufacturingTest from "../../assets/images/fig3_manufacturing_test.jpg";
-import fig4Ecosystems from "../../assets/images/fig4_ecosystems.jpg";
+import fig2AdvancedPackaging from "../../assets/images/regenerated_image_1791462301355.png";
+import fig3ManufacturingTest from "../../assets/images/regenerated_image_1791462316127.png";
+import fig4Ecosystems from "../../assets/images/regenerated_image_1791462339533.png";
 
 export function WhereIWorkSection() {
   const cards = [
