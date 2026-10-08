@@ -24,7 +24,7 @@ export function IntroductionSection() {
             </p>
 
             <p className="text-sm sm:text-base text-[#969BA3] leading-relaxed mb-8">
-              Over three decades, he has helped build foundational silicon at Texas Instruments, manage synthesis consulting at Synopsys, direct architecture at QuickLogic, scale multinational practices at Infinite, commercialize clean energy at Solar-Apps, and lead advanced electronics manufacturing at Krypton Solutions. Today, he advises C-suites, foundry consortiums, and public policy leaders on capturing value in post-Moore computing.
+              Over three decades, he has helped ramp foundational silicon at Texas Instruments, direct marketing at QuickLogic, scale business development at Infinite, drive strategic accounts at Synopsys, commercialize clean energy at Solar-Apps, and lead executive initiatives at MosChip, IESA, and Global Semiconductor EMS. Today, he advises C-suites, foundry consortiums, and public policy leaders on capturing value in post-Moore computing.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">

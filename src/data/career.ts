@@ -11,83 +11,93 @@ export interface CareerMilestone {
 
 export const CAREER_MILESTONES: CareerMilestone[] = [
   {
-    id: "consulting-present",
-    period: "2023 — Present",
-    role: "Strategic Semiconductor & Advanced Packaging Advisor",
-    organization: "Independent Advisory / Ecosystem Initiatives",
-    location: "Global / India",
-    focus: "National Semiconductor Roadmap & OSAT Capability",
-    description: "Advising public policy bodies, foundry consortiums, and technology startups on advanced packaging architectures, OSAT readiness, fabless-to-package pipelines, and supply-chain sovereignty.",
-    tags: ["Advanced Packaging", "OSAT", "Chiplets", "Heterogeneous Integration", "Policy Advisory"]
+    id: "rkc-advisory",
+    period: "Jan 2024 — Present",
+    role: "Principal Consultant — Semiconductor Design & Manufacturing Advisory",
+    organization: "RKC Advisory",
+    location: "Bengaluru, India (Hybrid)",
+    focus: "Advanced Packaging, RISC-V & AI Accelerators",
+    description: "Delivered end-to-end programme management for multiple AI accelerator tape-outs in the GCC region, deploying RTL-to-GDSII flows with advanced EDA tooling. Developed strategic roadmaps for embedded semiconductor startups covering AI HW architecture and RISC-V/ARM silicon. Established MOUs between OSAT providers and skilling bodies supporting India Semiconductor Mission capacity-building goals.",
+    tags: ["Advanced Packaging", "RISC-V", "AI Accelerators", "CoWoS", "India Semiconductor Mission", "RTL-to-GDSII"]
   },
   {
-    id: "krypton",
-    period: "2021 — 2023",
-    role: "Director / Advanced Semiconductor Solutions",
-    organization: "Krypton Solutions",
-    location: "Plano, TX & Global Operations",
-    focus: "OSAT & Advanced Electronics Manufacturing",
-    description: "Spearheaded advanced manufacturing initiatives, microelectronics packaging, multi-chip module integration, and high-reliability EMS/OSAT delivery for defense, aerospace, and computing verticals.",
-    tags: ["OSAT", "Advanced Packaging", "EMS", "High-Reliability", "Defense & Aerospace"]
+    id: "global-ems",
+    period: "Apr 2018 — Present",
+    role: "Executive Director, Global Semiconductor EMS",
+    organization: "Global Semiconductor EMS",
+    location: "Bangalore, India (Remote)",
+    focus: "Semiconductor EMS Plant Development & Advanced Packaging",
+    description: "Oversaw greenfield semiconductor EMS plant development execution, coordinating cross-functional facilities, procurement, and operations teams on schedule. Drove business development strategy for advanced packaging and EMS services in the AI hardware supply chain, establishing executive relationships across India and APAC.",
+    tags: ["Semiconductor EMS", "Advanced Packaging", "Greenfield Capacity", "AI Supply Chain", "APAC", "OSAT"]
   },
   {
-    id: "imaps-iosa",
-    period: "2020 — Present",
-    role: "Co-Chair & Board Member",
-    organization: "iMAPS India / Semiconductor Industry Forums",
+    id: "iesa",
+    period: "Mar 2023 — Oct 2023",
+    role: "VP of Strategy, Innovation, and Execution",
+    organization: "IESA (India Electronics and Semiconductor Association)",
     location: "Bengaluru, India",
-    focus: "Microelectronics Packaging Society & Standards",
-    description: "Championed the revival and expansion of microelectronics packaging forums across South Asia, connecting academic researchers, test houses, and packaging vendors with global standards.",
-    tags: ["iMAPS", "Ecosystem", "Packaging Standards", "Academia Collaboration"]
+    focus: "ESDM Policy, Semiconductor Strategy & Industry Alliances",
+    description: "Led strategic initiatives for India's premier ESDM industry body, collaborating with member companies to establish India as a global destination for semiconductor design and manufacturing. Served as trusted knowledge partner to Central and State Governments formulating electronics manufacturing policies and investment incentives.",
+    tags: ["IESA", "ESDM", "National Policy", "Advanced Packaging", "Industry Strategy"]
+  },
+  {
+    id: "moschip",
+    period: "Apr 2021 — Oct 2022",
+    role: "Vice President of Business Development — India & APAC",
+    organization: "MosChip Technologies",
+    location: "Bengaluru, India",
+    focus: "Turnkey ASIC Design Services & Embedded Systems",
+    description: "Scaled business development across India and Asia Pacific in embedded software, system-level hardware, and turnkey ASIC design services. Represented company leadership at major industry platforms including India Semicon, translating design capability into commercial tier-1 client engagements.",
+    tags: ["Turnkey ASIC", "ASIC Design Services", "Embedded Software", "Business Development", "APAC"]
   },
   {
     id: "solar-apps",
-    period: "2013 — 2020",
-    role: "Founder & Chief Executive Officer",
-    organization: "Solar-Apps Energy",
-    location: "India & US",
-    focus: "Renewable Technology & Hardware Commercialization",
-    description: "Founded and built a solar clean-tech venture from inception through multi-megawatt commercial deployment. Led product engineering, power electronics integration, and sustainable energy delivery.",
-    tags: ["Clean Tech", "Power Electronics", "Entrepreneurship", "Product Commercialization"]
-  },
-  {
-    id: "infinite",
-    period: "2008 — 2013",
-    role: "Vice President — Technology & High-Tech Practice",
-    organization: "Infinite Computer Solutions",
-    location: "Dallas / Bengaluru",
-    focus: "Telecom, Embedded Systems & Silicon Engineering",
-    description: "Managed global technology practices across silicon design verification, embedded systems, and telecom hardware engineering. Scaled cross-border engineering teams across North America and India.",
-    tags: ["Silicon Verification", "Embedded Systems", "Global Engineering", "Scale"]
-  },
-  {
-    id: "quicklogic",
-    period: "2004 — 2008",
-    role: "Senior Director / Technical Marketing & Architecture",
-    organization: "QuickLogic Corporation",
-    location: "Sunnyvale, CA & Dallas, TX",
-    focus: "Ultra-Low Power Programmable Logic & ASICs",
-    description: "Directed architecture definition, programmable silicon marketing, and customer enablement for ultra-low power FPGA devices and customer-specific standard products (CSSPs).",
-    tags: ["FPGA", "Ultra-Low Power", "Silicon Architecture", "Customer Enablement"]
+    period: "Jul 2015 — Apr 2018",
+    role: "Founder and CEO",
+    organization: "Solar-Apps Energy Pvt. Ltd.",
+    location: "Bengaluru, India",
+    focus: "Renewable Technology & Clean Energy Hardware",
+    description: "Founded and directed clean-tech power electronics company covering DC systems, PV, MPPT, energy storage, EPC, and PPA models. Delivered two consecutive years of 20%+ revenue growth and doubled profitability, closing privately financed commercial rooftop installations exceeding 300 kW.",
+    tags: ["Clean Tech", "Power Electronics", "Storage & DC Systems", "Entrepreneurship", "PPA & EPC"]
   },
   {
     id: "synopsys",
-    period: "1998 — 2004",
-    role: "Senior Engineering Manager / Staff Applications Consultant",
+    period: "Nov 2004 — Jul 2015",
+    role: "Sr. Executive Account Manager",
     organization: "Synopsys",
-    location: "Mountain View, CA & Dallas, TX",
-    focus: "Electronic Design Automation (EDA) & Synthesis",
-    description: "Guided top-tier semiconductor customers through synthesis, timing closure, design-for-test (DFT), and deep submicron physical design flows for complex SoC implementations.",
-    tags: ["EDA", "Design Compiler", "SoC Design", "Timing Closure", "DFT"]
+    location: "Bengaluru Area, India",
+    focus: "EDA Tools, RTL-to-GDSII, DFM & Emulation Platforms",
+    description: "Consistently exceeded revenue targets managing global strategic accounts with design centres in India, covering EDA, RTL-to-GDSII, DFM, HLS, and ADAS emulation technologies. Built C-suite relationships across leading fabless and IDM companies, securing multi-year EDA platform agreements aligned with customer PPAS (power, performance, area, schedule) goals.",
+    tags: ["Synopsys", "EDA Platforms", "RTL-to-GDSII", "DFM", "Strategic Accounts", "PPAS Optimization"]
+  },
+  {
+    id: "infinite",
+    period: "Dec 2003 — Sep 2004",
+    role: "Business Development Manager",
+    organization: "Infinite Computer Solutions",
+    location: "Dallas, Texas, United States",
+    focus: "ITES, Enterprise Architecture & Global Services",
+    description: "Managed enterprise technology business development covering ITES, ERP systems, Microsoft .NET, and global service practices. Successfully closed first-of-kind municipal and commercial contracts, including major ERP engagements exceeding $400,000.",
+    tags: ["Enterprise ERP", "Business Development", "ITES", "Global Services", "Dallas"]
+  },
+  {
+    id: "quicklogic",
+    period: "Dec 2000 — Oct 2001",
+    role: "Product Marketing Manager",
+    organization: "QuickLogic Corporation",
+    location: "Dallas-Fort Worth Metroplex, Texas",
+    focus: "Ultra-Low Power FPGA, SRAM & TI DSP Interface",
+    description: "Directed product marketing for low-power FPGA, SRAM, and DSP co-processing devices. Architected and built a hardware prototype evaluation board interfacing with Texas Instruments DSPs, and created comprehensive technical sales enablement collateral for North American sales and FAE teams.",
+    tags: ["FPGA", "TI DSP", "Hardware Prototype", "Product Marketing", "Silicon Enablement"]
   },
   {
     id: "texas-instruments",
-    period: "1993 — 1998",
-    role: "Design Engineer / Semiconductor Technical Lead",
+    period: "Jul 1995 — Dec 2000",
+    role: "Product Marketing Engineer",
     organization: "Texas Instruments",
-    location: "Dallas, TX & Bengaluru",
-    focus: "Digital Signal Processors & ASIC Development",
-    description: "Foundational years working on cutting-edge DSP core architectures, IC design methodologies, and silicon characterization at one of the world's most storied semiconductor pioneers.",
-    tags: ["DSP Architecture", "Silicon Characterization", "CMOS", "Semiconductor Foundations"]
+    location: "Dallas, Texas, United States",
+    focus: "GSM DSPs, Mixed-Signal & Analog Power Management",
+    description: "Ramped Ericsson GSM DSP + microcontroller ICs from prototype to volume production, managing ATE test coverage, DPPM targets, and fab yield improvement programmes. Led failure analysis and product engineering for Motorola and Qualcomm analog and PMIC ICs, reducing field return rates via structured FIT analysis and root-cause reviews.",
+    tags: ["Texas Instruments", "DSP Ramping", "GSM Silicon", "Yield Engineering", "Analog & PMIC", "ATE Testing"]
   }
 ];

@@ -124,7 +124,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Hardware OEMs seeking reliable second-source advanced packaging supply chains.",
       "Foundry consortiums planning domestic ATMP / OSAT facility investments."
     ],
-    howExperienceAddsValue: "As Co-Chair of the iMAPS India Chapter and former VP at Krypton Solutions with deep hands-on packaging and cleanroom operations experience, Sharat Kaul provides direct, actionable guidance grounded in physical packaging realities.",
+    howExperienceAddsValue: "As Co-Chair of the iMAPS India Chapter and Executive Director at Global Semiconductor EMS with deep hands-on packaging, plant development, and cleanroom operations experience, Sharat Kaul provides direct, actionable guidance grounded in physical packaging realities.",
     keyDeliverables: [
       "2.5D/3D & Chiplet feasibility assessments",
       "OSAT vendor selection & cleanroom readiness",
@@ -298,7 +298,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Cleanroom operators troubleshooting yield bottlenecks in early production ramp-ups.",
       "Industrial conglomerates commissioning new advanced electronic assembly facilities."
     ],
-    howExperienceAddsValue: "Having managed advanced electronics manufacturing lines and high-reliability aerospace/defense production at Krypton Solutions, Sharat understands the day-to-day discipline needed on the factory cleanroom floor.",
+    howExperienceAddsValue: "Having directed greenfield semiconductor EMS plant development and high-reliability production lines at Global Semiconductor EMS, Sharat understands the day-to-day operational discipline needed on the factory cleanroom floor.",
     keyDeliverables: [
       "Operational readiness & cleanroom tool qualification",
       "Defect density mitigation & yield enhancement",

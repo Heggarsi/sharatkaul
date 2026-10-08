@@ -18,21 +18,19 @@ export function Footer() {
   return (
     <footer className="relative bg-[#08090B] border-t border-[#242933] pt-20 pb-12 px-6 lg:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Top Section with Name & Descriptor */}
-        <div className="border-b border-[#242933] pb-14 mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
-            <div>
-              <Link to="/" className="inline-flex items-center group mb-4" aria-label="RKS Consulting">
-                <RKSLogo
-                  className="h-16 sm:h-20 md:h-24 w-auto object-contain group-hover:scale-[1.02] transition-transform"
-                  alt="RKS Consulting"
-                />
-              </Link>
-            </div>
+        {/* Top Header Row with Logo on Left and Menu List on the Right Side */}
+        <div className="border-b border-[#242933] pb-10 mb-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div>
+            <Link to="/" className="inline-flex items-center group" aria-label="RKS Consulting">
+              <RKSLogo
+                className="h-10 sm:h-12 md:h-13 w-auto object-contain group-hover:scale-[1.02] transition-transform"
+                alt="RKS Consulting"
+              />
+            </Link>
           </div>
 
-          {/* Clean Consulting Navigation Links */}
-          <div className="flex flex-wrap items-center gap-6 sm:gap-8 text-xs font-mono uppercase tracking-wider text-[#969BA3]">
+          {/* Clean Consulting Navigation Links on Right Side of Logo */}
+          <nav className="flex flex-wrap items-center gap-5 sm:gap-7 lg:gap-8 text-xs font-mono uppercase tracking-wider text-[#969BA3]">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -42,7 +40,7 @@ export function Footer() {
                 {link.label}
               </Link>
             ))}
-          </div>
+          </nav>
         </div>
 
         {/* Verification & Legal Bottom Bar */}

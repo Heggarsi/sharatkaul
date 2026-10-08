@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { CUSTOMER_CATEGORIES, PLACEHOLDER_LOGOS } from "../data/customers";
-import { LogoPlaceholder } from "../components/ui/LogoPlaceholder";
+import { CUSTOMER_CATEGORIES } from "../data/customers";
 
 export function CustomersPage() {
   const steps = [
@@ -38,14 +37,14 @@ export function CustomersPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest">
-              ECOSYSTEM CLIENTS &amp; ALLIANCES
+              CLIENT ENGAGEMENT VERTICALS
             </span>
             <div className="h-[1px] w-12 bg-[#242933]" />
           </div>
 
           <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAFAF8] leading-[1.05] mb-6">
-            CUSTOMERS &amp; <br />
-            <span className="font-serif italic font-normal text-[#C9A46C]">PARTNERS.</span>
+            CLIENT <br />
+            <span className="font-serif italic font-normal text-[#C9A46C]">VERTICALS.</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-[#969BA3] max-w-2xl leading-relaxed">
@@ -102,38 +101,8 @@ export function CustomersPage() {
         </div>
       </section>
 
-      {/* Professional Logo Wall (Using Reusable Dummy Nexora Component) */}
-      <section className="py-16 px-6 lg:px-12 bg-[#111317] border-y border-[#242933]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-            <div>
-              <span className="text-xs font-mono text-[#969BA3] uppercase tracking-wider">
-                Partner &amp; Client Ecosystem
-              </span>
-              <p className="text-xs text-[#66717D] mt-0.5">
-                Representing engagements across semiconductors, cleanrooms, and institutional boards.
-              </p>
-            </div>
-            <span className="text-[10px] font-mono text-[#66717D]">
-              // CONFIDENTIAL &amp; DISCRETE CLIENT ENGAGEMENTS
-            </span>
-          </div>
-
-          {/* Logo Placeholder Slots */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {PLACEHOLDER_LOGOS.map((logo) => (
-              <LogoPlaceholder
-                key={logo.id}
-                name={logo.name}
-                slotLabel={logo.type}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Engagement Model / How We Work */}
-      <section className="py-24 px-6 lg:px-12 bg-[#08090B]">
+      <section className="py-24 px-6 lg:px-12 bg-[#111317] border-y border-[#242933]">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-16">
             <div className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest mb-3">

@@ -55,28 +55,28 @@ export function AboutPage() {
                 <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-[#0080FF]/20 via-[#C9A46C]/20 to-transparent blur-xl opacity-70 group-hover:opacity-100 transition-opacity" />
 
                 {/* Main Card */}
-                <div className="relative rounded-2xl overflow-hidden border border-[#242933] bg-[#111317] shadow-2xl">
-                  <img
-                    src={rksProfilePic}
-                    alt="Sharat Kaul - Founder & Principal Consultant, RKS Consulting"
-                    className="w-full h-auto max-h-[460px] object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                  />
+                <div className="relative rounded-2xl overflow-hidden border border-[#242933] bg-[#111317] shadow-2xl flex flex-col">
+                  <div className="relative overflow-hidden bg-[#08090B]">
+                    <img
+                      src={rksProfilePic}
+                      alt="Sharat Kaul - Founder & Principal Consultant, RKS Consulting"
+                      className="w-full h-auto max-h-[440px] object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
 
-                  {/* Subtle lower vignette overlay with title */}
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#08090B] via-[#08090B]/80 to-transparent p-5 pt-12">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="font-mono text-base font-bold text-[#FAFAF8]">
-                          Sharat Kaul
-                        </div>
-                        <div className="text-[11px] font-mono text-[#C9A46C] uppercase tracking-wider">
-                          Founder &amp; Principal Consultant
-                        </div>
+                  {/* High-Contrast Dedicated Profile Info Bar for Both Themes */}
+                  <div className="p-4 sm:p-5 bg-[#16191F] border-t border-[#242933] flex items-center justify-between">
+                    <div>
+                      <div className="font-mono text-base sm:text-lg font-bold text-[#FAFAF8]">
+                        Sharat Kaul
                       </div>
-                      <span className="px-2.5 py-1 rounded bg-[#1B1E24]/80 border border-[#242933] text-[10px] font-mono text-[#969BA3]">
-                        RKS
-                      </span>
+                      <div className="text-xs font-mono text-[#C9A46C] uppercase tracking-wider mt-0.5 font-semibold">
+                        Founder &amp; Principal Consultant
+                      </div>
                     </div>
+                    <span className="px-3 py-1 rounded-md bg-[#242933] border border-[#242933] text-[11px] font-mono font-bold text-[#FAFAF8]">
+                      RKS
+                    </span>
                   </div>
                 </div>
               </div>
@@ -142,7 +142,7 @@ export function AboutPage() {
                   Evolution of a 30-Year Career
                 </h3>
                 <p className="text-sm sm:text-base text-[#969BA3] leading-relaxed">
-                  Sharat’s career began in foundational silicon engineering at Texas Instruments, progressing through Electronic Design Automation (EDA) synthesis at Synopsys, ultra-low power programmable silicon marketing at QuickLogic, global high-tech practice scaling at Infinite Computer Solutions, clean-tech hardware commercialization at Solar-Apps Energy, and advanced packaging manufacturing at Krypton Solutions.
+                  Sharat’s career began in foundational silicon engineering and yield ramping at Texas Instruments, progressing through programmable logic at QuickLogic, high-tech business development at Infinite, over a decade driving strategic EDA accounts at Synopsys, clean-tech entrepreneurship as Founder &amp; CEO of Solar-Apps Energy, turnkey ASIC business development at MosChip, and leadership at IESA and Global Semiconductor EMS. Today, he delivers strategic advisory across advanced packaging, RISC-V, and sovereign manufacturing scale-up.
                 </p>
               </div>
 

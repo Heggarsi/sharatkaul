@@ -115,7 +115,7 @@ export function InsightDetailPage() {
                 About the Author &amp; Firm
               </h3>
               <p className="text-sm text-[#969BA3] leading-relaxed mb-4">
-                Sharat Kaul is an executive technology leader and Co-Chair of the iMAPS India Chapter with over 30 years spanning Texas Instruments, Synopsys, and Krypton Solutions. Through RKS Consulting, he advises enterprise CEOs, foundry consortiums, and institutional boards on high-stakes semiconductor strategies.
+                Sharat Kaul is an executive technology leader and Co-Chair of the iMAPS India Chapter with over 30 years spanning Texas Instruments, Synopsys, MosChip, and Global Semiconductor EMS. Through RKC Advisory, he advises enterprise CEOs, foundry consortiums, and institutional boards on high-stakes semiconductor strategies.
               </p>
               <div className="text-xs font-mono text-[#66717D]">
                 {article.editorialNote}

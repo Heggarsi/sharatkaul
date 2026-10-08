@@ -11,7 +11,7 @@ export function CareerImpactSection() {
       icon: Hammer,
       headline: "Constructing Hardware & Ventures from Fundamentals",
       narrative:
-        "From transistor-level IC synthesis at Texas Instruments and Synopsys to founding Solar-Apps Energy and establishing cleanroom packaging prototypes at Krypton Solutions, building physical hardware capabilities has anchored three decades of work.",
+        "From silicon yield ramping at Texas Instruments and EDA platform strategy at Synopsys to founding Solar-Apps Energy and executive direction at Global Semiconductor EMS, building physical hardware capabilities has anchored three decades of work.",
       deliverable: "Built multi-megawatt commercial renewable infrastructure and deep-submicron ASIC methodologies."
     },
     {

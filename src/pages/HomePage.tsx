@@ -8,8 +8,7 @@ import { ValueChainSection } from "../components/sections/ValueChainSection";
 import { WhySharatSection } from "../components/sections/WhySharatSection";
 import { FinalCTASection } from "../components/sections/FinalCTASection";
 import { SERVICES_DATA } from "../data/services";
-import { CUSTOMER_CATEGORIES, PLACEHOLDER_LOGOS } from "../data/customers";
-import { LogoPlaceholder } from "../components/ui/LogoPlaceholder";
+import { CUSTOMER_CATEGORIES } from "../data/customers";
 import { INSIGHTS_DATA } from "../data/insights";
 import { SPEAKING_ENGAGEMENTS } from "../data/speaking";
 
@@ -107,13 +106,13 @@ export function HomePage() {
       {/* 05: EXPERIENCE (EXPERIENCE THAT SPANS THE VALUE CHAIN) */}
       <ValueChainSection />
 
-      {/* 06: CUSTOMERS / PARTNERS (WORKING ACROSS THE ECOSYSTEM) */}
+      {/* 06: CLIENT VERTICALS (WORKING ACROSS THE ECOSYSTEM) */}
       <section className="py-24 px-6 lg:px-12 bg-[#08090B]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div>
               <div className="text-xs font-mono text-[#C9A46C] uppercase tracking-widest mb-3">
-                CLIENT &amp; PARTNER SECTORS
+                CLIENT VERTICALS
               </div>
               <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#FAFAF8] leading-tight">
                 WORKING ACROSS <br />
@@ -129,35 +128,39 @@ export function HomePage() {
             </Link>
           </div>
 
-          {/* 6 Category Pills / Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-12">
+          {/* Client Verticals Cards from Customer Page */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CUSTOMER_CATEGORIES.map((cat) => (
               <div
                 key={cat.id}
-                className="p-5 rounded-xl bg-[#111317] border border-[#242933] text-center flex flex-col justify-center items-center"
+                className="p-8 rounded-2xl bg-[#111317] border border-[#242933] hover:border-[#C9A46C]/50 transition-all flex flex-col justify-between"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-[#C9A46C] mb-3" />
-                <span className="font-display text-xs sm:text-sm font-semibold text-[#FAFAF8]">
-                  {cat.category}
-                </span>
+                <div>
+                  <h3 className="font-display text-xl font-bold text-[#FAFAF8] mb-3">
+                    {cat.category}
+                  </h3>
+                  <p className="text-sm text-[#969BA3] leading-relaxed mb-6">
+                    {cat.description}
+                  </p>
+                </div>
+
+                <div className="pt-6 border-t border-[#242933]">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-[#C9A46C] mb-2 font-semibold">
+                    Common Engagement Focus:
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {cat.engagementAreas.map((area, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2.5 py-1 rounded bg-[#1B1E24] border border-[#242933] text-[11px] font-sans text-[#FAFAF8]"
+                      >
+                        {area}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
-          </div>
-
-          {/* Logo Wall Slots */}
-          <div className="p-8 rounded-2xl bg-[#111317] border border-[#242933]">
-            <div className="text-xs font-mono text-[#66717D] uppercase tracking-wider mb-6 text-center">
-              Partner &amp; Client Ecosystem Slots // Confidential Retainers
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {PLACEHOLDER_LOGOS.map((logo) => (
-                <LogoPlaceholder
-                  key={logo.id}
-                  name={logo.name}
-                  slotLabel={logo.type}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </section>

@@ -251,7 +251,7 @@ export function ServiceDetailPage({ customSlug }: ServiceDetailPageProps) {
                 </p>
 
                 <div className="p-4 rounded-xl bg-[#1B1E24]/60 border border-[#242933] text-xs font-mono text-[#C9A46C]">
-                  30+ Years Leadership · Texas Instruments · Synopsys · Krypton Solutions · iMAPS India
+                  30+ Years Leadership · Texas Instruments · Synopsys · Global Semiconductor EMS · iMAPS India
                 </div>
               </div>
 
