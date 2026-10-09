@@ -5,6 +5,7 @@ import { MobileMenu } from "./MobileMenu";
 import { SERVICES_DATA } from "../../data/services";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import { useTheme } from "../../context/ThemeContext";
+import { RKSLogo } from "../ui/RKSLogo";
 
 export function Navbar() {
   const { theme } = useTheme();
@@ -93,18 +94,16 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
-          {/* Left: Pure Typography Wordmark (RKS CONSULTING - No Logo Image) */}
+          {/* Left: Brand Logo */}
           <Link
             to="/"
-            className="flex flex-col items-start leading-none group select-none py-1 focus:outline-none"
+            className="flex items-center group select-none py-0.5 focus:outline-none"
             aria-label="RKS Consulting Home"
           >
-            <span className="font-mono text-xl sm:text-2xl font-bold tracking-tight text-[#FAFAF8] group-hover:text-white transition-colors">
-              RKS
-            </span>
-            <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.26em] text-[#969BA3] uppercase font-semibold mt-1">
-              CONSULTING
-            </span>
+            <RKSLogo
+              className="h-8 sm:h-9 w-auto object-contain group-hover:scale-[1.02] transition-transform"
+              alt="RKS Consulting"
+            />
           </Link>
 
           {/* Right: Integrated Single-Row Navigation Bar matching exact PDF pattern */}

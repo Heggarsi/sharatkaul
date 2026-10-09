@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, Calendar, FileText, MapPin, Mic, Play, Presentation, Users, Video, Volume2, Youtube } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, Calendar, Clock, FileText, MapPin, Mic, Play, Presentation, Sparkles, Users, Video, Volume2, Youtube } from "lucide-react";
 import { SPEAKING_ENGAGEMENTS } from "../data/speaking";
 import { MEDIA_ITEMS } from "../data/media";
 
@@ -119,7 +119,7 @@ export function SpeakingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {MEDIA_ITEMS.filter((item) => item.url).map((media) => {
               const isVideo = media.format === "Video Interview";
               return (
@@ -130,9 +130,10 @@ export function SpeakingPage() {
                   rel="noopener noreferrer"
                   className="group rounded-2xl bg-[#111317] border border-[#242933] hover:border-[#C9A46C]/60 transition-all flex flex-col justify-between shadow-xl overflow-hidden hover:shadow-2xl hover:shadow-[#C9A46C]/5"
                 >
-                  <div>
+                  <div className="flex-1 flex flex-col">
+                    {/* Visual Media Header */}
                     {media.thumbnailUrl ? (
-                      <div className="relative aspect-video w-full overflow-hidden bg-[#08090B]">
+                      <div className="relative aspect-video w-full overflow-hidden bg-[#08090B] shrink-0">
                         <img
                           src={media.thumbnailUrl}
                           alt={media.title}
@@ -140,54 +141,84 @@ export function SpeakingPage() {
                           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                         />
                         {/* Gradient overlay for depth */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#111317] via-black/25 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#111317] via-black/35 to-transparent opacity-85 group-hover:opacity-65 transition-opacity" />
 
-                        {/* Centered Play Button overlay */}
+                        {/* Interactive Center Badge Overlay */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                          <div className="w-14 h-14 rounded-full bg-[#08090B]/85 backdrop-blur-md border border-[#C9A46C]/80 text-[#C9A46C] flex items-center justify-center shadow-[0_0_24px_rgba(201,164,108,0.35)] group-hover:scale-110 group-hover:bg-[#C9A46C] group-hover:text-[#08090B] transition-all duration-300">
-                            <Play className="w-5 h-5 fill-current ml-0.5" />
-                          </div>
+                          {isVideo ? (
+                            <div className="w-14 h-14 rounded-full bg-[#08090B]/85 backdrop-blur-md border border-[#C9A46C]/80 text-[#C9A46C] flex items-center justify-center shadow-[0_0_24px_rgba(201,164,108,0.35)] group-hover:scale-110 group-hover:bg-[#C9A46C] group-hover:text-[#08090B] transition-all duration-300">
+                              <Play className="w-5 h-5 fill-current ml-0.5" />
+                            </div>
+                          ) : (
+                            <div className="px-4 py-2 rounded-full bg-[#08090B]/85 backdrop-blur-md border border-[#C9A46C]/80 text-[#C9A46C] flex items-center gap-2 shadow-[0_0_24px_rgba(201,164,108,0.35)] group-hover:scale-105 group-hover:bg-[#C9A46C] group-hover:text-[#08090B] transition-all duration-300">
+                              <BookOpen className="w-4 h-4 text-current" />
+                              <span className="text-xs font-mono font-semibold uppercase tracking-wider">Read Full Article</span>
+                            </div>
+                          )}
                         </div>
 
                         {/* Floating Top Badges */}
                         <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
                           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#08090B]/85 backdrop-blur-md border border-[#C9A46C]/50 text-xs font-mono text-[#C9A46C] font-semibold shadow-md">
-                            <Video className="w-3.5 h-3.5 text-[#C9A46C]" />
-                            <span>Video Interview</span>
+                            {isVideo ? (
+                              <>
+                                <Video className="w-3.5 h-3.5 text-[#C9A46C]" />
+                                <span>Video Interview</span>
+                              </>
+                            ) : (
+                              <>
+                                <FileText className="w-3.5 h-3.5 text-[#C9A46C]" />
+                                <span>Published Interview</span>
+                              </>
+                            )}
                           </div>
                           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#08090B]/85 backdrop-blur-md border border-[#242933] text-[11px] font-mono text-white/90 shadow-md">
-                            <Youtube className="w-3.5 h-3.5 text-[#FF0000]" />
-                            <span>YouTube</span>
+                            {isVideo ? (
+                              <>
+                                <Youtube className="w-3.5 h-3.5 text-[#FF0000]" />
+                                <span>YouTube</span>
+                              </>
+                            ) : (
+                              <>
+                                <Clock className="w-3.5 h-3.5 text-[#C9A46C]" />
+                                <span>{media.readTime || "6 min read"}</span>
+                              </>
+                            )}
                           </div>
                         </div>
                       </div>
                     ) : (
-                      <div className="h-2 w-full bg-gradient-to-r from-[#C9A46C] via-[#E1C58F] to-[#242933]" />
-                    )}
-
-                    <div className="p-7 sm:p-9">
-                      {!media.thumbnailUrl && (
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center gap-2 px-3 py-1 rounded bg-[#1B1E24] border border-[#242933] text-xs font-mono text-[#C9A46C] font-semibold">
+                      /* Editorial Header Fallback */
+                      <div className="relative h-44 w-full bg-gradient-to-br from-[#181B22] via-[#0E1015] to-[#08090B] border-b border-[#242933] p-6 flex flex-col justify-between overflow-hidden shrink-0">
+                        <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-[#C9A46C]/10 blur-2xl pointer-events-none" />
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#08090B]/85 border border-[#C9A46C]/40 text-xs font-mono text-[#C9A46C] font-semibold">
                             <FileText className="w-3.5 h-3.5" />
                             <span>{media.format}</span>
                           </div>
-                          <span className="text-xs font-mono text-[#66717D]">
-                            {media.year}
-                          </span>
+                          <span className="text-xs font-mono text-[#66717D]">{media.year}</span>
                         </div>
-                      )}
+                        <div className="flex items-center gap-2 text-xs font-mono text-[#C9A46C]">
+                          <BookOpen className="w-4 h-4" />
+                          <span className="uppercase tracking-wider">Expert Editorial Dialogue</span>
+                        </div>
+                      </div>
+                    )}
 
-                      {media.thumbnailUrl && (
-                        <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#66717D]">
-                          <span className="text-[#C9A46C] font-semibold tracking-wider uppercase text-[11px]">
-                            {media.source}
-                          </span>
+                    {/* Card Content Body */}
+                    <div className="p-7 sm:p-9 flex-1 flex flex-col">
+                      <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#66717D]">
+                        <span className="text-[#C9A46C] font-semibold tracking-wider uppercase text-[11px]">
+                          {media.source}
+                        </span>
+                        <span className="flex items-center gap-2">
+                          {media.readTime && <span>{media.readTime}</span>}
+                          <span>•</span>
                           <span>{media.year}</span>
-                        </div>
-                      )}
+                        </span>
+                      </div>
 
-                      <h3 className="font-display text-xl sm:text-2xl font-bold text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors mb-3 leading-snug">
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-[#FAFAF8] group-hover:text-[#C9A46C] transition-colors mb-3.5 leading-snug">
                         {media.title}
                       </h3>
 
@@ -200,18 +231,37 @@ export function SpeakingPage() {
                         </div>
                       )}
 
-                      <p className="text-sm text-[#969BA3] leading-relaxed mb-6">
+                      <p className="text-sm text-[#969BA3] leading-relaxed mb-5">
                         {media.summary}
                       </p>
+
+                      {/* Key Discussion Pillars & Strategic Insights */}
+                      {media.keyTakeaways && media.keyTakeaways.length > 0 && (
+                        <div className="mt-auto mb-2 p-4 rounded-xl bg-[#1B1E24] border border-[#242933] space-y-2.5">
+                          <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-[#C9A46C] font-semibold">
+                            <Sparkles className="w-3 h-3 text-[#C9A46C]" />
+                            <span>Core Discussion Pillars &amp; Insights</span>
+                          </div>
+                          <ul className="space-y-1.5 text-xs text-[#969BA3]">
+                            {media.keyTakeaways.map((point, idx) => (
+                              <li key={idx} className="flex items-start gap-2">
+                                <span className="text-[#C9A46C] font-mono text-[10px] mt-0.5 shrink-0">❖</span>
+                                <span className="leading-snug text-[#969BA3]">{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   </div>
 
+                  {/* Card Bottom Action Bar */}
                   <div className="px-7 pb-7 sm:px-9 sm:pb-9 pt-0">
                     <div className="pt-4 border-t border-[#242933]">
                       <div className="flex items-center justify-between text-xs font-mono text-[#66717D] mb-3">
                         <span className="truncate pr-2">PLATFORM: {media.source}</span>
                         <span className="inline-flex items-center gap-1.5 text-[#C9A46C] text-xs shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform font-semibold">
-                          <span>{isVideo ? "Watch Interview" : "Read Article"}</span>
+                          <span>{isVideo ? "Watch Interview" : "Read Full Article"}</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
                       </div>
