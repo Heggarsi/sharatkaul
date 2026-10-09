@@ -23,7 +23,7 @@ export function HomePage() {
       {/* 01: HERO (FROM SILICON TO SCALE) */}
       <HeroSection />
 
-      {/* 02: WHERE I WORK (ADVANCED PACKAGING, MANUFACTURING & TEST, ECOSYSTEMS) */}
+      {/* 02: WHERE WE WORK (ADVANCED PACKAGING, MANUFACTURING & TEST, ECOSYSTEMS) */}
       <WhereIWorkSection />
 
       {/* 03: INTRODUCTION (WHO IS SHARAT KAUL?) */}

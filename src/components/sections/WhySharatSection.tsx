@@ -15,7 +15,7 @@ export function WhySharatSection() {
       title: "Strategic Perspective",
       icon: Eye,
       headline: "Connecting Technical Frontiers with Board-Level Business Objectives",
-      detail: "Coupling MS Electrical Engineering rigor with SMU Cox MBA business frameworks to evaluate capital allocation, M&A risk, and commercial feasibility."
+      detail: "Coupling BS Electrical Engineering (BSEE) rigor with SMU Cox MBA business frameworks to evaluate capital allocation, M&A risk, and commercial feasibility."
     },
     {
       num: "03",

@@ -52,7 +52,7 @@ export function HeroSection() {
               href="#where-i-work"
               className="text-xs sm:text-sm font-sans text-[#969BA3] hover:text-[#FAFAF8] transition-colors"
             >
-              See how I work
+              See how we work
             </a>
           </div>
         </div>

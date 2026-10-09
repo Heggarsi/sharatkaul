@@ -35,7 +35,7 @@ export function WhereIWorkSection() {
         {/* Section Header */}
         <div className="flex items-center justify-between gap-6 mb-12">
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-[#FAFAF8]">
-            Where I work.
+            Where we work.
           </h2>
 
           <Link

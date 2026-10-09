@@ -55,7 +55,7 @@ export function AboutPage() {
               </span>
 
               <p className="font-display text-xl sm:text-2xl lg:text-[25px] text-[#FAFAF8] leading-relaxed font-normal mb-10">
-                30+ years on every side of semiconductors — chip design, EDA, manufacturing and business. Today I help leaders turn design strength into manufacturing capability.
+                30+ years on every side of semiconductors — chip design, EDA, manufacturing and business. Today we help leaders turn design strength into manufacturing capability.
               </p>
 
               {/* Credentials Grid */}
@@ -99,13 +99,13 @@ export function AboutPage() {
               </div>
             </div>
 
-            {/* Read my full story link */}
+            {/* Read our full story link */}
             <div className="pt-2">
               <Link
                 to="/experience"
                 className="inline-flex items-center gap-1.5 text-sm font-sans font-medium text-[#38BDF8] hover:text-[#7DD3FC] transition-colors group"
               >
-                <span>Read my full story</span>
+                <span>Read our full story</span>
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </Link>
             </div>
