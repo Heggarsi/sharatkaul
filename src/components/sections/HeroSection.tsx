@@ -42,18 +42,11 @@ export function HeroSection() {
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#38BDF8] hover:bg-[#7DD3FC] text-[#08090B] font-sans font-semibold text-xs sm:text-sm transition-all shadow-md shadow-[#38BDF8]/20 mb-2 group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#38BDF8] hover:bg-[#7DD3FC] text-[#08090B] font-sans font-semibold text-xs sm:text-sm transition-all shadow-md shadow-[#38BDF8]/20 group"
             >
               <span>Book a conversation</span>
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
-
-            <a
-              href="#where-i-work"
-              className="text-xs sm:text-sm font-sans text-[#969BA3] hover:text-[#FAFAF8] transition-colors"
-            >
-              See how we work
-            </a>
           </div>
         </div>
 

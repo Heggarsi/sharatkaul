@@ -103,7 +103,7 @@ export function ContactSection() {
                   Dialogue Initiated
                 </h3>
                 <p className="text-sm text-[#969BA3] max-w-md mx-auto leading-relaxed">
-                  Your mail client has been opened with pre-filled parameters. If it did not open automatically, please reach out directly via LinkedIn.
+                  We are in receipt of your email. We will come back to you soon.
                 </p>
                 <button
                   onClick={() => setFormSubmitted(false)}

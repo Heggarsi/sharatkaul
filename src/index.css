@@ -470,8 +470,75 @@ html[data-theme="light"] .text-\[\#66717D\] {
 }
 
 /* Gold Accent in Light Mode: Rich Warm Brass with high contrast */
-html[data-theme="light"] .text-\[\#C9A46C\] {
+html[data-theme="light"] .text-\[\#C9A46C\],
+html.light .text-\[\#C9A46C\] {
   color: #A17A38 !important;
+}
+
+html[data-theme="light"] .text-\[\#E1C58F\],
+html.light .text-\[\#E1C58F\],
+html[data-theme="light"] .text-\[\#E1C58F\]\/90,
+html.light .text-\[\#E1C58F\]\/90 {
+  color: #8C6226 !important;
+}
+
+/* Preserved dark cards & black-grey shaded cards in light mode:
+   Ensures all text inside dark gradient/shaded cards (in services, insights, and elsewhere) remains crisp, bright, and legible */
+html[data-theme="light"] [class*="bg-gradient-to-br"] .text-\[\#FAFAF8\],
+html.light [class*="bg-gradient-to-br"] .text-\[\#FAFAF8\],
+html[data-theme="light"] [class*="bg-gradient-to-br"] h1,
+html.light [class*="bg-gradient-to-br"] h1,
+html[data-theme="light"] [class*="bg-gradient-to-br"] h2,
+html.light [class*="bg-gradient-to-br"] h2,
+html[data-theme="light"] [class*="bg-gradient-to-br"] h3,
+html.light [class*="bg-gradient-to-br"] h3,
+html[data-theme="light"] [class*="bg-gradient-to-br"] .font-display,
+html.light [class*="bg-gradient-to-br"] .font-display,
+html[data-theme="light"] div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#FAFAF8\],
+html.light div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#FAFAF8\] {
+  color: #FAFAF8 !important;
+}
+
+html[data-theme="light"] [class*="bg-gradient-to-br"] .text-\[\#969BA3\],
+html.light [class*="bg-gradient-to-br"] .text-\[\#969BA3\],
+html[data-theme="light"] [class*="bg-gradient-to-br"] p,
+html.light [class*="bg-gradient-to-br"] p,
+html[data-theme="light"] div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#969BA3\],
+html.light div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#969BA3\] {
+  color: #CBD5E1 !important;
+}
+
+html[data-theme="light"] [class*="bg-gradient-to-br"] .text-\[\#66717D\],
+html.light [class*="bg-gradient-to-br"] .text-\[\#66717D\],
+html[data-theme="light"] div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#66717D\],
+html.light div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#66717D\] {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="light"] [class*="bg-gradient-to-br"] .text-\[\#C9A46C\],
+html.light [class*="bg-gradient-to-br"] .text-\[\#C9A46C\],
+html[data-theme="light"] div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#C9A46C\],
+html.light div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#C9A46C\] {
+  color: #C9A46C !important;
+}
+
+html[data-theme="light"] [class*="bg-gradient-to-br"] .text-\[\#E1C58F\],
+html.light [class*="bg-gradient-to-br"] .text-\[\#E1C58F\],
+html[data-theme="light"] div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#E1C58F\],
+html.light div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#E1C58F\] {
+  color: #E1C58F !important;
+}
+
+html[data-theme="light"] [class*="bg-gradient-to-br"] .bg-\[\#08090B\]\/80,
+html.light [class*="bg-gradient-to-br"] .bg-\[\#08090B\]\/80,
+html[data-theme="light"] [class*="bg-gradient-to-br"] .bg-\[\#08090B\],
+html.light [class*="bg-gradient-to-br"] .bg-\[\#08090B\] {
+  background-color: rgba(10, 15, 26, 0.75) !important;
+}
+
+html[data-theme="light"] [class*="bg-gradient-to-br"] .border-\[\#242933\],
+html.light [class*="bg-gradient-to-br"] .border-\[\#242933\] {
+  border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
 /* Hover States */
