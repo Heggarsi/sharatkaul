@@ -2,12 +2,14 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, ChevronRight, Layers, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { SERVICES_DATA } from "../data/services";
 import { MagneticButton } from "../components/motion/MagneticButton";
+import { useTheme } from "../context/ThemeContext";
 
 interface ServiceDetailPageProps {
   customSlug?: string;
 }
 
 export function ServiceDetailPage({ customSlug }: ServiceDetailPageProps) {
+  const { theme } = useTheme();
   const { slug } = useParams<{ slug: string }>();
   const activeSlug = customSlug || slug;
 
@@ -94,7 +96,10 @@ export function ServiceDetailPage({ customSlug }: ServiceDetailPageProps) {
 
                 <div className="relative z-10 space-y-6">
                   <div className="flex items-center justify-between pb-4 border-b border-[#242933]">
-                    <span className="text-[10px] font-mono text-[#C9A46C] uppercase tracking-widest">
+                    <span
+                      className="text-[10px] font-mono uppercase tracking-widest font-semibold practice-architecture-badge"
+                      style={{ color: theme === "light" ? "#0284C7" : "#C9A46C" }}
+                    >
                       PRACTICE ARCHITECTURE
                     </span>
                     <span className="text-xs font-mono text-[#66717D]">

@@ -522,6 +522,18 @@ html.light div#root > div > main#main-content > div > div > section:first-of-typ
   color: #C9A46C !important;
 }
 
+html[data-theme="light"] .practice-architecture-badge,
+html.light .practice-architecture-badge,
+html[data-theme="light"] div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type div:first-of-type span:first-of-type,
+html.light div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type div:first-of-type span:first-of-type {
+  color: #0284C7 !important;
+}
+
+html:not([data-theme="light"]) .practice-architecture-badge,
+html[data-theme="dark"] .practice-architecture-badge {
+  color: #C9A46C !important;
+}
+
 html[data-theme="light"] [class*="bg-gradient-to-br"] .text-\[\#E1C58F\],
 html.light [class*="bg-gradient-to-br"] .text-\[\#E1C58F\],
 html[data-theme="light"] div#root > div > main#main-content > div > div > section:first-of-type > div > div > div:nth-of-type(2) > div:first-of-type .text-\[\#E1C58F\],
