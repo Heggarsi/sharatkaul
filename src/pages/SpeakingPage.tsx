@@ -157,40 +157,31 @@ export function SpeakingPage() {
               </p>
             </div>
 
-            {/* Carousel Navigation Controls */}
-            <div className="flex items-center gap-4 shrink-0">
-              <div className="text-xs font-mono text-[#66717D]">
-                <span className="text-[#C9A46C] font-semibold">0{activeSlide + 1}</span> / 0{featuredMedia.length}
-              </div>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => handleScroll("left")}
-                  disabled={!canScrollLeft}
-                  aria-label="Previous card"
-                  className="p-3 rounded-xl bg-[#111317] border border-[#242933] text-[#FAFAF8] hover:border-[#C9A46C] hover:text-[#C9A46C] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleScroll("right")}
-                  disabled={!canScrollRight}
-                  aria-label="Next card"
-                  className="p-3 rounded-xl bg-[#111317] border border-[#242933] text-[#FAFAF8] hover:border-[#C9A46C] hover:text-[#C9A46C] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+            {/* Slide Counter */}
+            <div className="text-xs font-mono text-[#66717D] shrink-0">
+              <span className="text-[#C9A46C] font-semibold">0{activeSlide + 1}</span> / 0{featuredMedia.length}
             </div>
           </div>
 
-          {/* 2-Card Carousel Track */}
-          <div
-            ref={carouselRef}
-            onScroll={checkScroll}
-            className="flex gap-8 overflow-x-auto scroll-smooth scrollbar-none snap-x snap-mandatory pb-4 pt-1"
-          >
+          {/* 2-Card Carousel with Side Navigation Controls */}
+          <div className="relative">
+            {/* Left Sliding Button */}
+            <button
+              type="button"
+              onClick={() => handleScroll("left")}
+              disabled={!canScrollLeft}
+              aria-label="Previous card"
+              className="absolute -left-3 sm:-left-5 lg:-left-6 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 rounded-full bg-[#111317]/95 backdrop-blur-md border border-[#242933] text-[#FAFAF8] hover:border-[#C9A46C] hover:text-[#C9A46C] disabled:opacity-20 disabled:cursor-not-allowed transition-all shadow-xl hover:scale-105"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* 2-Card Carousel Track */}
+            <div
+              ref={carouselRef}
+              onScroll={checkScroll}
+              className="flex gap-8 overflow-x-auto scroll-smooth scrollbar-none snap-x snap-mandatory pb-4 pt-1"
+            >
             {featuredMedia.map((media) => {
               const isVideo = media.format === "Video Interview";
               const isRoundtable = media.format === "Leadership Roundtable";
@@ -376,6 +367,18 @@ export function SpeakingPage() {
               );
             })}
           </div>
+
+          {/* Right Sliding Button */}
+          <button
+            type="button"
+            onClick={() => handleScroll("right")}
+            disabled={!canScrollRight}
+            aria-label="Next card"
+            className="absolute -right-3 sm:-right-5 lg:-right-6 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 rounded-full bg-[#111317]/95 backdrop-blur-md border border-[#242933] text-[#FAFAF8] hover:border-[#C9A46C] hover:text-[#C9A46C] disabled:opacity-20 disabled:cursor-not-allowed transition-all shadow-xl hover:scale-105"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
 
           {/* Carousel Pagination Dots */}
           <div className="flex items-center justify-center gap-2 mt-8">
