@@ -4,12 +4,22 @@ export interface SpeakingEngagement {
   event: string;
   location: string;
   year: string;
-  format: "Keynote" | "Panel Discussion" | "Invited Talk" | "Symposium Chair";
+  format: "Keynote" | "Panel Discussion" | "Invited Talk" | "Symposium Chair" | "Roundtable Convenor";
   summary: string;
   sourceNote: string;
 }
 
 export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
+  {
+    id: "spk-pcim-2024",
+    topic: "Policy Meets Power: A Historic Alignment for India's Semiconductor Future",
+    event: "PCIM Asia New Delhi Conference (Government-Industry Leadership Roundtable)",
+    location: "New Delhi, India",
+    year: "2024",
+    format: "Roundtable Convenor",
+    summary: "Served as Session Convenor alongside Co-Convenor Parna Das (PCIM India), uniting leadership from MeitY, India Semiconductor Mission (ISM), Ministry of Power, and tier-1 global industry executives to chart a strategic roadmap for India's sovereign power electronics and high-tech manufacturing ecosystem.",
+    sourceNote: "Official Government-Industry Leadership Roundtable convened at PCIM Asia Conference."
+  },
   {
     id: "spk-1",
     topic: "From Design Leadership to Manufacturing Sovereignty: A Call to Action for India's Advanced Packaging Mission",

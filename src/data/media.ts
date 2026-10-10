@@ -1,11 +1,12 @@
 import electronicaThumbnail from "../assets/images/electronica_interview_thumbnail.jpg";
 import efyThumbnail from "../assets/images/efy_interview_thumbnail.jpg";
+import pcimThumbnail from "../assets/images/RKS_PCIM.jpg";
 
 export interface MediaItem {
   id: string;
   title: string;
   source: string;
-  format: "Video Interview" | "Published Article / Expert Interview" | "Industry Analysis" | "Symposium Proceedings" | "Policy Brief" | "Executive Discourse";
+  format: "Video Interview" | "Published Article / Expert Interview" | "Industry Analysis" | "Symposium Proceedings" | "Policy Brief" | "Executive Discourse" | "Leadership Roundtable";
   year: string;
   summary: string;
   topics: string[];
@@ -13,11 +14,32 @@ export interface MediaItem {
   thumbnailUrl?: string;
   speakers?: string;
   featuredExpert?: string;
+  moderatedBy?: string;
   readTime?: string;
   keyTakeaways?: string[];
+  hideOnHome?: boolean;
 }
 
 export const MEDIA_ITEMS: MediaItem[] = [
+  {
+    id: "media-pcim-roundtable",
+    title: "Policy Meets Power: A Historic Alignment for India’s Semiconductor Future",
+    source: "PCIM Asia New Delhi Conference (LinkedIn)",
+    format: "Leadership Roundtable",
+    year: "2024",
+    thumbnailUrl: pcimThumbnail,
+    moderatedBy: "Session Convenor: Sharat Kaul, (iNEMI) & Session Co-Convenor: Parna Das (PCIM India)",
+    summary: "A high-level Government-Industry Leadership Roundtable convened at the PCIM Asia New Delhi Conference, serving as a vital bridge between India’s semiconductor policy vision and global industry majors to chart an actionable roadmap for domestic power electronics and manufacturing resilience.",
+    topics: ["Power Electronics", "Semiconductor Policy", "Grid Infrastructure", "iNEMI", "PCIM Asia"],
+    url: "https://lnkd.in/p/ghDkWe4i",
+    readTime: "Executive Roundtable",
+    hideOnHome: true,
+    keyTakeaways: [
+      "Sovereignty in Semiconductor Fabrication",
+      "Sustainable Grid Infrastructure",
+      "Global Supply Chain Resilience"
+    ]
+  },
   {
     id: "media-electronica-interview",
     title: "Industry Insights: Developing India’s Electronics & Semiconductor Manufacturing Ecosystem",

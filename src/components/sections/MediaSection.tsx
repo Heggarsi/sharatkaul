@@ -25,7 +25,7 @@ export function MediaSection() {
 
         {/* Media Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {MEDIA_ITEMS.map((item) => {
+          {MEDIA_ITEMS.filter((item) => !item.hideOnHome).map((item) => {
             const isVideo = item.format === "Video Interview";
             const CardWrapper = item.url ? "a" : "div";
             const linkProps = item.url

@@ -16,7 +16,7 @@ export function HomePage() {
   const previewInsights = INSIGHTS_DATA.slice(0, 2);
 
   // 2 Speaking items for Homepage preview
-  const previewSpeaking = SPEAKING_ENGAGEMENTS.slice(0, 2);
+  const previewSpeaking = SPEAKING_ENGAGEMENTS.filter((s) => s.id !== "spk-pcim-2024").slice(0, 2);
 
   return (
     <>
