@@ -10,7 +10,7 @@ export function HeroSection() {
     >
       <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between min-h-0">
         {/* Top 3-Column Micro-Ticker Strip (No second line underneath) */}
-        <div className="pt-1 pb-2 mb-2 lg:mb-4 shrink-0">
+        <div className="-mt-1.5 sm:-mt-2 lg:-mt-3 xl:-mt-3.5 pt-0 pb-2 mb-2 lg:mb-4 shrink-0">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 items-center text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-[#969BA3]">
             <div className="text-left font-semibold text-[#FAFAF8]">
               SHARAT KAUL
