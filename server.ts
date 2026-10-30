@@ -1,13 +1,18 @@
 import express, { Request, Response } from 'express';
-import nodemailer from 'nodemailer';
+import nodemailer, { SendMailOptions } from 'nodemailer';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import dns from 'dns/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'rksc.co.in@gmail.com';
 const GMAIL_APP_PASSWORD = (process.env.GMAIL_APP_PASSWORD || '').replace(/\s+/g, '').replace(/["']/g, '');
 
@@ -27,7 +32,7 @@ function createMailTransporter() {
   });
 }
 
-async function sendMailWithRetry(mailOptions: nodemailer.SendMailOptions, maxRetries = 3) {
+async function sendMailWithRetry(mailOptions: SendMailOptions, maxRetries = 3) {
   let lastError: any;
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
@@ -347,24 +352,42 @@ app.post('/api/contact', async (req: Request, res: Response): Promise<any> => {
   }
 });
 
-app.listen(PORT, async () => {
-  console.log(`[Backend Server] Nodemailer API listening on http://localhost:${PORT}`);
-  console.log(`[Backend Server] Admin recipient: ${ADMIN_EMAIL}`);
-
-  if (!GMAIL_APP_PASSWORD) {
-    console.warn('[Nodemailer Server] Warning: GMAIL_APP_PASSWORD is not set in .env.');
+async function startServer() {
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'dist')));
+    app.get('*', (_req: Request, res: Response) => {
+      res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    });
   } else {
-    try {
-      const testTransporter = createMailTransporter();
-      await testTransporter.verify();
-      console.log(`[Nodemailer Server] SUCCESS: Gmail SMTP credentials verified for ${ADMIN_EMAIL}! Ready to dispatch emails.`);
-    } catch (err: any) {
-      console.error(`[Nodemailer Server] SMTP Verification Warning:`, err?.message);
-      if (err?.message?.includes('535') || err?.message?.includes('BadCredentials')) {
-        console.error(`[Nodemailer Server] -> Google rejected the credentials (535 Bad Credentials).`);
-        console.error(`[Nodemailer Server] -> IMPORTANT: You MUST generate a 16-character Google App Password (not your standard Gmail account password).`);
-        console.error(`[Nodemailer Server] -> Generate it here: https://myaccount.google.com/apppasswords`);
+    const { createServer: createViteServer } = await import('vite');
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: 'spa'
+    });
+    app.use(vite.middlewares);
+  }
+
+  app.listen(Number(PORT), '0.0.0.0', async () => {
+    console.log(`[Backend Server] Express + Vite server listening on http://0.0.0.0:${PORT}`);
+    console.log(`[Backend Server] Admin recipient: ${ADMIN_EMAIL}`);
+
+    if (!GMAIL_APP_PASSWORD) {
+      console.warn('[Nodemailer Server] Warning: GMAIL_APP_PASSWORD is not set in .env.');
+    } else {
+      try {
+        const testTransporter = createMailTransporter();
+        await testTransporter.verify();
+        console.log(`[Nodemailer Server] SUCCESS: Gmail SMTP credentials verified for ${ADMIN_EMAIL}! Ready to dispatch emails.`);
+      } catch (err: any) {
+        console.error(`[Nodemailer Server] SMTP Verification Warning:`, err?.message);
+        if (err?.message?.includes('535') || err?.message?.includes('BadCredentials')) {
+          console.error(`[Nodemailer Server] -> Google rejected the credentials (535 Bad Credentials).`);
+          console.error(`[Nodemailer Server] -> IMPORTANT: You MUST generate a 16-character Google App Password (not your standard Gmail account password).`);
+          console.error(`[Nodemailer Server] -> Generate it here: https://myaccount.google.com/apppasswords`);
+        }
       }
     }
-  }
-});
+  });
+}
+
+startServer();
